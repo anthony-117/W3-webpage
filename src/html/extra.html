@@ -3,18 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/public/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/src/css/web_history.css" />
     <title>Web Technologies Information</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 20px;
-      }
-      h1,
-      h2 {
-        color: #333;
-      }
       table {
         border-collapse: collapse;
         width: 100%;
@@ -32,274 +24,481 @@
     </style>
   </head>
   <body>
-    <h1>Web Technologies Information</h1>
+    <aside class="table_of_content">
+      <a href="index.html"
+        ><img
+          src="/public/favicon.png"
+          alt=""
+          style="width: 100%; height: 10vh"
+      /></a>
+      <!-- <i class="fa-solid fa-bars"></i> -->
+      <nav></nav>
+    </aside>
+    <div class="body">
+      <header>
+        <h1>Web Technologies Information</h1>
+        <img src="/public/images/explore.jpeg" alt="" />
+      </header>
+      <main>
+        <section>
+          <h2>Difference between GET and POST in RESTful APIs</h2>
+          <ul>
+            <li>
+              <h3>POST</h3>
+              <ol>
+                <li>
+                  The POST method requests that the origin server accept the
+                  entity attached in the request as a new subordinate of the
+                  resource identified by the <em>Request-URI</em> in the
+                  <em>Request-Line</em>
+                </li>
+                <li>
+                  <code>POST</code> is <strong>NOT idempotent</strong>. So if we
+                  retry the request N times, we will end up having N resources
+                  with N different URIs created on the server.
+                </li>
+                <li>
+                  Responses to this method are <strong>not cacheable</strong>,
+                  unless the response includes appropriate
+                  <em>Cache-Control</em> or <em>Expires</em> header fields.
+                </li>
+              </ol>
+            </li>
+            <li>
+              <h3>GET</h3>
+              <ol>
+                <li>
+                  The GET Method requests
+                  <strong
+                    >to retrieve resource representation/information
+                    only</strong
+                  >
+                  – and not modify it in any way. As GET requests do not change
+                  the resource's state, these are said to be
+                  <strong>safe methods</strong>.
+                </li>
+                <li>
+                  <strong>GET APIs should be idempotent.</strong> Making
+                  multiple identical requests must produce the same result every
+                  time.
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Google Search Algorithm</h2>
+          <ul>
+            <li>
+              <h3>Algorithm</h3>
+              <p>
+                Google Search works in three stages, and not all pages make it
+                through each stage:
+              </p>
+              <ol>
+                <li>
+                  <strong>Crawling:</strong> Google downloads text, images, and
+                  videos from pages it found on the internet with automated
+                  programs called crawlers.
+                </li>
+                <li>
+                  <strong>Indexing:</strong> Google analyzes the text, images,
+                  and video files on the page, and stores the information in the
+                  Google index, which is a large database.
+                </li>
+                <li>
+                  <strong>Serving search results:</strong> When a user searches
+                  on Google, Google returns information that's relevant to the
+                  user's query.
+                </li>
+              </ol>
+            </li>
+            <li>
+              <h3>Page Rank</h3>
+              <ol>
+                <li>
+                  Basic Concept: PageRank is based on the idea that the
+                  importance of a web page can be determined by the quantity and
+                  quality of links pointing to it from other web pages. The more
+                  high-quality websites that link to a page, the more important
+                  the page is assumed to be.
+                </li>
+                <li>
+                  Mathematical Model: PageRank can be thought of as modeling a
+                  "random surfer" who starts on a random web page and keeps
+                  clicking on links, never hitting "back" but eventually gets
+                  bored and starts on another random page. The probability that
+                  the random surfer visits a page is its PageRank.
+                </li>
+                <li>
+                  The PageRank Formula: The simplified PageRank formula for a
+                  page A is:
+                  <br />PR(A) = (1-d) + d * (PR(T1)/C(T1) + ... + PR(Tn)/C(Tn))
+                  <br />Where:
+                  <ul>
+                    <li>PR(A) is the PageRank of page A</li>
+                    <li>
+                      PR(Ti) is the PageRank of pages Ti which link to page A
+                    </li>
+                    <li>C(Ti) is the number of outbound links on page Ti</li>
+                    <li>d is a damping factor, usually set to 0.85</li>
+                  </ul>
+                </li>
+                <li>
+                  Damping Factor: The damping factor d represents the
+                  probability that the "random surfer" will continue clicking on
+                  links, rather than randomly jumping to a new page. The (1-d)
+                  term ensures that pages with no inbound links still get a
+                  small PageRank.
+                </li>
+                <li>
+                  Iterative Calculation: PageRank is calculated iteratively.
+                  Initially, all pages are assigned an equal PageRank, and then
+                  the formula is applied repeatedly until the PageRank values
+                  converge (i.e., stop changing significantly).
+                </li>
+                <li>
+                  Link Quality: Not all links are equal. Links from more
+                  important pages (those with higher PageRank) contribute more
+                  to the PageRank of the pages they link to.
+                </li>
+                <li>
+                  Treatment of Dangling Links: Pages with no outbound links
+                  (dangling nodes) pose a problem for the algorithm. Various
+                  methods have been proposed to handle this, such as treating
+                  them as if they linked to all pages in the web.
+                </li>
+                <li>
+                  Personalization: The basic PageRank algorithm can be modified
+                  to produce personalized PageRanks, which take into account a
+                  user's preferences or browsing history.
+                </li>
+                <li>
+                  Integration with Other Factors: While PageRank was a
+                  revolutionary algorithm when introduced, modern search engines
+                  use it in combination with hundreds of other factors to
+                  determine search rankings.
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </section>
 
-    <h2>Difference between GET and POST in RESTful APIs</h2>
-
-    <h3>POST</h3>
-    <ol>
-      <li>
-        The POST method requests that the origin server accept the entity
-        attached in the request as a new subordinate of the resource identified
-        by the <em>Request-URI</em> in the <em>Request-Line</em>
-      </li>
-      <li>
-        <code>POST</code> is <strong>NOT idempotent</strong>. So if we retry the
-        request N times, we will end up having N resources with N different URIs
-        created on the server.
-      </li>
-      <li>
-        Responses to this method are <strong>not cacheable</strong>, unless the
-        response includes appropriate <em>Cache-Control</em> or
-        <em>Expires</em> header fields.
-      </li>
-    </ol>
-
-    <h3>GET</h3>
-    <ol>
-      <li>
-        The GET Method requests
-        <strong>to retrieve resource representation/information only</strong> –
-        and not modify it in any way. As GET requests do not change the
-        resource's state, these are said to be <strong>safe methods</strong>.
-      </li>
-      <li>
-        <strong>GET APIs should be idempotent.</strong> Making multiple
-        identical requests must produce the same result every time.
-      </li>
-    </ol>
-
-    <h2>Google Search Algorithm</h2>
-    <p>
-      Google Search works in three stages, and not all pages make it through
-      each stage:
-    </p>
-    <ol>
-      <li>
-        <strong>Crawling:</strong> Google downloads text, images, and videos
-        from pages it found on the internet with automated programs called
-        crawlers.
-      </li>
-      <li>
-        <strong>Indexing:</strong> Google analyzes the text, images, and video
-        files on the page, and stores the information in the Google index, which
-        is a large database.
-      </li>
-      <li>
-        <strong>Serving search results:</strong> When a user searches on Google,
-        Google returns information that's relevant to the user's query.
-      </li>
-    </ol>
-
-    <h2>Page Rank</h2>
-    <ol>
-      <li>
-        Basic Concept: PageRank is based on the idea that the importance of a
-        web page can be determined by the quantity and quality of links pointing
-        to it from other web pages. The more high-quality websites that link to
-        a page, the more important the page is assumed to be.
-      </li>
-      <li>
-        Mathematical Model: PageRank can be thought of as modeling a "random
-        surfer" who starts on a random web page and keeps clicking on links,
-        never hitting "back" but eventually gets bored and starts on another
-        random page. The probability that the random surfer visits a page is its
-        PageRank.
-      </li>
-      <li>
-        The PageRank Formula: The simplified PageRank formula for a page A is:
-        <br />PR(A) = (1-d) + d * (PR(T1)/C(T1) + ... + PR(Tn)/C(Tn))
-        <br />Where:
+        <!-- <h3>References</h3>
         <ul>
-          <li>PR(A) is the PageRank of page A</li>
-          <li>PR(Ti) is the PageRank of pages Ti which link to page A</li>
-          <li>C(Ti) is the number of outbound links on page Ti</li>
-          <li>d is a damping factor, usually set to 0.85</li>
-        </ul>
-      </li>
-      <li>
-        Damping Factor: The damping factor d represents the probability that the
-        "random surfer" will continue clicking on links, rather than randomly
-        jumping to a new page. The (1-d) term ensures that pages with no inbound
-        links still get a small PageRank.
-      </li>
-      <li>
-        Iterative Calculation: PageRank is calculated iteratively. Initially,
-        all pages are assigned an equal PageRank, and then the formula is
-        applied repeatedly until the PageRank values converge (i.e., stop
-        changing significantly).
-      </li>
-      <li>
-        Link Quality: Not all links are equal. Links from more important pages
-        (those with higher PageRank) contribute more to the PageRank of the
-        pages they link to.
-      </li>
-      <li>
-        Treatment of Dangling Links: Pages with no outbound links (dangling
-        nodes) pose a problem for the algorithm. Various methods have been
-        proposed to handle this, such as treating them as if they linked to all
-        pages in the web.
-      </li>
-      <li>
-        Personalization: The basic PageRank algorithm can be modified to produce
-        personalized PageRanks, which take into account a user's preferences or
-        browsing history.
-      </li>
-      <li>
-        Integration with Other Factors: While PageRank was a revolutionary
-        algorithm when introduced, modern search engines use it in combination
-        with hundreds of other factors to determine search rankings.
-      </li>
-    </ol>
+          <li>
+            Brin, S., & Page, L. (1998). The anatomy of a large-scale hypertextual
+            Web search engine. Computer Networks and ISDN Systems, 30(1-7),
+            107-117.
+          </li>
+          <li>
+            Page, L., Brin, S., Motwani, R., & Winograd, T. (1999). The PageRank
+            citation ranking: Bringing order to the web. Stanford InfoLab.
+          </li>
+          <li>
+            Langville, A. N., & Meyer, C. D. (2006). Google's PageRank and beyond:
+            The science of search engine rankings. Princeton University Press.
+          </li>
+        <li>
+          Berkhin, P. (2005). A survey on PageRank computing. Internet
+          Mathematics, 2(1), 73-120.
+        </li>
+      </ul> -->
 
-    <h3>References</h3>
-    <ul>
-      <li>
-        Brin, S., & Page, L. (1998). The anatomy of a large-scale hypertextual
-        Web search engine. Computer Networks and ISDN Systems, 30(1-7), 107-117.
-      </li>
-      <li>
-        Page, L., Brin, S., Motwani, R., & Winograd, T. (1999). The PageRank
-        citation ranking: Bringing order to the web. Stanford InfoLab.
-      </li>
-      <li>
-        Langville, A. N., & Meyer, C. D. (2006). Google's PageRank and beyond:
-        The science of search engine rankings. Princeton University Press.
-      </li>
-      <li>
-        Berkhin, P. (2005). A survey on PageRank computing. Internet
-        Mathematics, 2(1), 73-120.
-      </li>
-    </ul>
+        <section>
+          <h2>First HTML TAGS</h2>
+          <ul>
+            <li>
+              <table>
+                <tr>
+                  <th>Tag</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td><code>&lt;title&gt;</code></td>
+                  <td>
+                    Specifies the title of the document, shown in the browser
+                    tab or title bar.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;nextid&gt;</code></td>
+                  <td>
+                    An obsolete tag used to specify the next unique identifier
+                    number. It was used in early HTML versions but is no longer
+                    supported.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;a&gt;</code></td>
+                  <td>
+                    Defines a hyperlink, allowing users to navigate from one
+                    page or section to another using URLs.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;isindex&gt;</code></td>
+                  <td>
+                    An obsolete tag used to create a single-line input field for
+                    keyword searches. It is no longer used in modern HTML.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;plaintext&gt;</code></td>
+                  <td>
+                    An obsolete tag that causes the rest of the page to be
+                    rendered as plain text, ignoring HTML formatting. It's
+                    rarely used in current web development.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;listing&gt;</code></td>
+                  <td>
+                    An obsolete tag that displays text as preformatted, like
+                    <code>&lt;pre&gt;</code>, often used for code or listings.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;p&gt;</code></td>
+                  <td>
+                    Defines a paragraph of text. This is a block-level element,
+                    typically separating text with space above and below.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;h1&gt;…&lt;h6&gt;</code></td>
+                  <td>
+                    Defines HTML headings, with <code>&lt;h1&gt;</code> being
+                    the most important (usually the main heading) and
+                    <code>&lt;h6&gt;</code> the least important.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;address&gt;</code></td>
+                  <td>
+                    Represents contact information for the document author or
+                    owner, usually rendered in italics by default.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;hp1&gt;</code>, <code>&lt;hp2&gt;</code></td>
+                  <td>
+                    These tags are not part of standard HTML and likely refer to
+                    custom or proprietary tags in some older or non-standard
+                    HTML implementations.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;dl&gt;</code></td>
+                  <td>
+                    Defines a description list (also called a definition list),
+                    containing pairs of terms and descriptions.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;dt&gt;</code></td>
+                  <td>
+                    Defines a term or name in a description list, typically
+                    appearing in bold.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;dd&gt;</code></td>
+                  <td>
+                    Defines a description or value for a term in a description
+                    list, usually indented under the term.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;ul&gt;</code></td>
+                  <td>
+                    Defines an unordered list, with list items typically
+                    rendered as bullet points.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;li&gt;</code></td>
+                  <td>
+                    Defines a list item within either an unordered
+                    (<code>&lt;ul&gt;</code>) or ordered
+                    (<code>&lt;ol&gt;</code>) list.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;menu&gt;</code></td>
+                  <td>
+                    An obsolete tag that originally represented a list of
+                    commands or options. It was used similarly to
+                    <code>&lt;ul&gt;</code> but is now rarely used.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;dir&gt;</code></td>
+                  <td>
+                    Another obsolete tag that defined a directory list of files.
+                    It has been replaced by more modern elements like
+                    <code>&lt;ul&gt;</code>.
+                  </td>
+                </tr>
+              </table>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>CSS History and Features</h2>
+          <ul>
+            <li>
+              <h3>Creation of CSS</h3>
+              <p>
+                Cascading Style Sheets (CSS) was proposed by Håkon Wium Lie on
+                October 10, 1994, while working with Tim Berners-Lee at CERN.
+                The World Wide Web Consortium (W3C) developed CSS to solve the
+                problem of HTML becoming too complex as authors began using it
+                for formatting instead of just structuring content.
+              </p>
+            </li>
+            <li>
+              <h3>CSS Levels and Versions</h3>
+              <p>
+                CSS has evolved through several levels: CSS1 was released in
+                1996, CSS2 in 1998, and CSS3 began development in 1999. Unlike
+                its predecessors, CSS3 was divided into modules that could be
+                developed and released independently. This modular approach
+                continues with CSS4 and beyond, though version numbers are less
+                emphasized now.
+              </p>
+            </li>
+            <li>
+              <h3>Selectors</h3>
+              <p>
+                CSS selectors are patterns used to select and style HTML
+                elements. They've evolved significantly since CSS1:
+              </p>
 
-    <h2>First HTML TAGS</h2>
-    <table>
-      <tr>
-        <th>Tag</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><code>&lt;title&gt;</code></td>
-        <td>
-          Specifies the title of the document, shown in the browser tab or title
-          bar.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;nextid&gt;</code></td>
-        <td>
-          An obsolete tag used to specify the next unique identifier number. It
-          was used in early HTML versions but is no longer supported.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;a&gt;</code></td>
-        <td>
-          Defines a hyperlink, allowing users to navigate from one page or
-          section to another using URLs.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;isindex&gt;</code></td>
-        <td>
-          An obsolete tag used to create a single-line input field for keyword
-          searches. It is no longer used in modern HTML.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;plaintext&gt;</code></td>
-        <td>
-          An obsolete tag that causes the rest of the page to be rendered as
-          plain text, ignoring HTML formatting. It's rarely used in current web
-          development.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;listing&gt;</code></td>
-        <td>
-          An obsolete tag that displays text as preformatted, like
-          <code>&lt;pre&gt;</code>, often used for code or listings.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;p&gt;</code></td>
-        <td>
-          Defines a paragraph of text. This is a block-level element, typically
-          separating text with space above and below.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;h1&gt;…&lt;h6&gt;</code></td>
-        <td>
-          Defines HTML headings, with <code>&lt;h1&gt;</code> being the most
-          important (usually the main heading) and <code>&lt;h6&gt;</code> the
-          least important.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;address&gt;</code></td>
-        <td>
-          Represents contact information for the document author or owner,
-          usually rendered in italics by default.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;hp1&gt;</code>, <code>&lt;hp2&gt;</code></td>
-        <td>
-          These tags are not part of standard HTML and likely refer to custom or
-          proprietary tags in some older or non-standard HTML implementations.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;dl&gt;</code></td>
-        <td>
-          Defines a description list (also called a definition list), containing
-          pairs of terms and descriptions.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;dt&gt;</code></td>
-        <td>
-          Defines a term or name in a description list, typically appearing in
-          bold.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;dd&gt;</code></td>
-        <td>
-          Defines a description or value for a term in a description list,
-          usually indented under the term.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;ul&gt;</code></td>
-        <td>
-          Defines an unordered list, with list items typically rendered as
-          bullet points.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;li&gt;</code></td>
-        <td>
-          Defines a list item within either an unordered
-          (<code>&lt;ul&gt;</code>) or ordered (<code>&lt;ol&gt;</code>) list.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;menu&gt;</code></td>
-        <td>
-          An obsolete tag that originally represented a list of commands or
-          options. It was used similarly to <code>&lt;ul&gt;</code> but is now
-          rarely used.
-        </td>
-      </tr>
-      <tr>
-        <td><code>&lt;dir&gt;</code></td>
-        <td>
-          Another obsolete tag that defined a directory list of files. It has
-          been replaced by more modern elements like <code>&lt;ul&gt;</code>.
-        </td>
-      </tr>
-    </table>
+              <ul>
+                <li>Element selectors (e.g., p, div)</li>
+                <li>Class selectors (e.g., .classname)</li>
+                <li>ID selectors (e.g., #idname)</li>
+                <li>Attribute selectors (e.g., [attribute="value"])</li>
+                <li>Pseudo-class selectors (e.g., :hover, :nth-child())</li>
+                <li>Pseudo-element selectors (e.g., ::before, ::after)</li>
+                <li>Combinators (e.g., descendant, child, adjacent sibling)</li>
+              </ul>
+              <!-- </p> -->
+            </li>
+            <li>
+              <h3>@rules</h3>
+              <p>
+                @rules (pronounced "at-rules") are CSS statements that give CSS
+                instructions on how to behave. They include:
+              </p>
+
+              <ul>
+                <li>@import - for importing other style sheets</li>
+                <li>@media - for responsive design and media queries</li>
+                <li>@font-face - for custom font embedding</li>
+                <li>@keyframes - for defining animations</li>
+                <li>@supports - for feature detection</li>
+                <li>@layer - for cascade layering (newer feature)</li>
+              </ul>
+              <!-- </p> -->
+            </li>
+            <li>
+              <h3>Box Model</h3>
+              <p>
+                The CSS box model is a fundamental concept introduced early in
+                CSS development. It describes how elements are rendered as boxes
+                with content, padding, borders, and margins. CSS3 introduced the
+                box-sizing property, allowing developers to change how the box
+                model is calculated.
+              </p>
+            </li>
+            <li>
+              <h3>Flexbox and Grid</h3>
+              <p>
+                CSS Flexbox (2017) and CSS Grid (2017) are modern layout systems
+                that revolutionized web design. Flexbox provides a more
+                efficient way to lay out, align, and distribute space among
+                items in a container. Grid offers a two-dimensional grid-based
+                layout system, making complex layouts more accessible and
+                responsive design easier.
+              </p>
+            </li>
+            <li>
+              <h3>CSS Preprocessors</h3>
+              <p>
+                While not part of the CSS specification, preprocessors like Sass
+                (2006), Less (2009), and Stylus (2010) have significantly
+                influenced CSS development. They introduced features like
+                variables, nesting, and mixins, many of which were later adopted
+                into native CSS.
+              </p>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>References</h2>
+          <ol class="reference-list">
+            <li>
+              PCMag. (n.d.). <i>30 Years of Browsers: A Quick History</i>.
+
+              <a
+                href="https://www.pcmag.com/news/30-years-of-browsers-a-quick-history"
+                target="_blank"
+                >https://www.pcmag.com/news/30-years-of-browsers-a-quick-history</a
+              >
+            </li>
+
+            <li>
+              Mozilla. (n.d.). <i>Firefox: Browser History</i>.
+              <a
+                href="https://www.mozilla.org/en-US/firefox/browsers/browser-history/"
+                target="_blank"
+                >https://www.mozilla.org/en-US/firefox/browsers/browser-history/</a
+              >
+            </li>
+
+            <li>
+              Google Developers. (n.d.). <i>How Search Works</i>.
+              <a
+                href="https://developers.google.com/search/docs/fundamentals/how-search-works"
+                target="_blank"
+                >https://developers.google.com/search/docs/fundamentals/how-search-works</a
+              >
+            </li>
+
+            <li>
+              GeeksforGeeks. (n.d.). <i>Page Rank Algorithm Implementation</i>.
+
+              <a
+                href="https://www.geeksforgeeks.org/page-rank-algorithm-implementation/"
+                target="_blank"
+                >https://www.geeksforgeeks.org/page-rank-algorithm-implementation/</a
+              >
+            </li>
+
+            <li>
+              Medium. (n.d.).
+              <i>History of HTML: From Evolution to Popularity</i>.
+              <a
+                href="https://seattlewebsitedesign.medium.com/history-of-html-from-evolution-to-popularity-ccc7286d0ab"
+                target="_blank"
+                >https://seattlewebsitedesign.medium.com/history-of-html-from-evolution-to-popularity-ccc7286d0ab</a
+              >
+            </li>
+
+            <li>
+              W3C. (n.d.). <i>Chapter 2: History of the Web</i>.
+              <a
+                href="https://www.w3.org/People/Raggett/book4/ch02.html"
+                target="_blank"
+                >https://www.w3.org/People/Raggett/book4/ch02.html</a
+              >
+            </li>
+          </ol>
+        </section>
+      </main>
+    </div>
+    <script src="/src/js/table_of_content.js"></script>
   </body>
 </html>

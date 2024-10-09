@@ -6,7 +6,9 @@
 /* https://theyearofgreta.com/ */
 
 $text-color: #f0f0f0;
-$background-color: #5310e3;
+$background-color: #3282b8;
+$header-color: #1b262c;
+$section-colors: #0f4c75, #2d0f6e, #bbe1fa;
 
 * {
   font-family: Inter, Arial, sans-serif;
@@ -18,10 +20,52 @@ $background-color: #5310e3;
   margin: 0;
   padding: 0;
 }
-
+img {
+  border-radius: 5% !important;
+}
 a {
   text-decoration: none;
-  cursor: pointer;
+}
+
+a:not(header a) {
+  font-size: 1.3rem;
+  text-decoration: none;
+  margin-top: 1em;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.5em;
+  margin-left: -0.5em;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: "";
+    border-bottom: 3px solid rgb(0, 99, 228);
+    border-radius: 1em;
+    bottom: 0.3em;
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  &:before {
+    width: 1em;
+    transform-origin: left;
+  }
+
+  &:after {
+    width: 82%;
+    left: 1em;
+    transform: translateX(110%);
+  }
+
+  &:hover:before {
+    transform: scaleX(0.3);
+  }
+
+  &:hover:after {
+    transform: translateX(0);
+  }
 }
 
 ul {
@@ -33,9 +77,12 @@ body {
 }
 
 header {
+  background-color: $header-color;
+
+  position: sticky;
   nav {
+    position: sticky;
     padding: 1rem;
-    position: relative;
     height: 10vh;
     width: 100vw;
     display: flex;
@@ -50,7 +97,7 @@ header {
   display: flex;
   a {
     img {
-      object-fit: contain;
+      object-fit: cover;
       width: 100%;
       height: 100%;
     }
@@ -94,7 +141,7 @@ nav {
 
     img {
       position: relative;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
 }
@@ -103,11 +150,27 @@ main {
   section {
     width: 100vw;
     height: 100vh;
+
+    @for $i from 1 through length($section-colors) {
+      &:nth-of-type(#{$i}) {
+        background-color: nth($section-colors, $i);
+
+        // Ensure text is readable on any background
+        color: if(lightness(nth($section-colors, $i)) > 50%, #000, #fff);
+
+        // If there are more sections than colors, loop back to the beginning
+        &:nth-of-type(n + #{length($section-colors) + 1}) {
+          $index: ($i - 1) % length($section-colors) + 1;
+          background-color: nth($section-colors, $index);
+          color: if(lightness(nth($section-colors, $index)) > 50%, #000, #fff);
+        }
+      }
+    }
   }
 }
 
 .topics {
-  background-color: #2d0f6e;
+  // background-color: #2d0f6e;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -197,4 +260,43 @@ main {
   font-size: 0.7rem;
   color: #666;
   border-top: 1px solid #eee;
+}
+
+.flex-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  .text-wrapper {
+    padding: 2.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4rem;
+    h2 {
+      font-weight: 500;
+      font-size: 3.7rem;
+    }
+  }
+  img {
+    width: 52vw;
+    padding-right: 2.5vw;
+    object-fit: contain;
+  }
+}
+
+.auto-show {
+  animation: autoshow both;
+  animation-timeline: view(70% 5%);
+}
+@keyframes autoshow {
+  from {
+    opacity: 0;
+    transform: translateY(13vh) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

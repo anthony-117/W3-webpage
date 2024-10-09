@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Evolution of Mobile Web Development</title>
-    <link rel="stylesheet" href="/public/favicon.png" />
+    <link rel="shortcut icon" href="/public/favicon.png" type="image/x-icon" />
+
     <link rel="stylesheet" href="/src/css/web_history.css" />
     <link
       rel="stylesheet"
@@ -16,12 +17,19 @@
   </head>
   <body>
     <aside class="table_of_content">
-      <i class="fa-solid fa-bars"></i>
+      <a href="index.html"
+        ><img
+          src="/public/favicon.png"
+          alt=""
+          style="width: 100%; height: 10vh"
+      /></a>
+      <!-- <i class="fa-solid fa-bars"></i> -->
       <nav></nav>
     </aside>
     <div class="body">
       <header>
         <h1>Detailed Timeline and Evolution of Mobile Web Development</h1>
+        <img src="/public/images/Mobile_Phone_Evolution.jpg" alt="" />
       </header>
 
       <main>
@@ -30,15 +38,13 @@
           <ul>
             <li>
               <h3>Network Limitations</h3>
-              <ul>
-                <li>
-                  <p>
-                    In the early days of the World Wide Web (WWW), which began
-                    in the early 1990s, mobile phones generally could not access
-                    the web due to several limitations: Early mobile networks
-                    (1G and 2G) were primarily designed for voice calls.
-                  </p>
-                </li>
+              <p>
+                In the early days of the World Wide Web (WWW), which began in
+                the early 1990s, mobile phones generally could not access the
+                web due to several limitations: Early mobile networks (1G and
+                2G) were primarily designed for voice calls.
+              </p>
+              <ol>
                 <li>
                   Data transmission speeds were extremely slow, typically 9.6
                   kbps or less.
@@ -47,39 +53,28 @@
                   These networks lacked the capacity to handle the amount of
                   data required for web browsing.
                 </li>
-              </ul>
+              </ol>
             </li>
             <li>
               <h3>Device Limitations</h3>
-              <ul>
-                <li>
-                  Early mobile phones had very small, often monochrome displays.
-                </li>
-                <li>
-                  They lacked the processing power needed to render web pages. -
-                  Memory was extremely limited, making it difficult to store and
-                  process web content.
-                </li>
-                <li>
-                  Input methods were restricted to numeric keypads, making it
-                  challenging to enter URLs or interact with web pages.
-                </li>
-              </ul>
+              <p>
+                Early mobile phones had very small, often monochrome displays.
+                They lacked the processing power needed to render web pages. -
+                Memory was extremely limited, making it difficult to store and
+                process web content. Input methods were restricted to numeric
+                keypads, making it challenging to enter URLs or interact with
+                web pages.
+              </p>
             </li>
             <li>
               <h3>Web Technology Limitations</h3>
-              <ul>
-                <li>
-                  Early web pages were designed for desktop computers with large
-                  screens and ample processing power.
-                </li>
-                <li>
-                  HTML and other web technologies weren't optimized for small
-                  screens or limited bandwidth.
-                </li>
-              </ul>
+              <p>
+                Early web pages were designed for desktop computers with large
+                screens and ample processing power. HTML and other web
+                technologies weren't optimized for small screens or limited
+                bandwidth.
+              </p>
             </li>
-            <li>Lack of Mobile-Specific Protocols</li>
           </ul>
         </section>
 
@@ -157,8 +152,7 @@
                 mobile devices to browse content such as news, weather and
                 sports scores provided by mobile network operators, specially
                 designed for the limited capabilities of a mobile device
-              </p>
-              <p>
+                <br />
                 WAP sites are written in WML, a markup language. WAP provides
                 content in the form of decks, which have several cards: decks
                 are similar to HTML web pages as they are the unit of data
@@ -201,8 +195,7 @@
                 Content is provided by specialised services, typically from the
                 mobile carrier, which allows them to have tighter control over
                 billing
-              </p>
-              <p>
+                <br />
                 i-mode borrows from DoCoMo proprietary protocols ALP (HTTP) and
                 TLP (TCP, UDP), as well as fixed Internet data formats such as
                 C-HTML, a subset of the HTML language designed by DoCoMo. C-HTML
@@ -244,8 +237,7 @@
                 develop any of the commercial submissions, but to create a new
                 markup language that was informed by but not really based on any
                 of them
-              </p>
-              <p>
+                <br />
                 SVG images are defined in a vector graphics format and stored in
                 XML text files. SVG images can thus be scaled in size without
                 loss of quality, and SVG files can be searched, indexed,
@@ -343,8 +335,7 @@
                 to web design that aims to make web pages render well on a
                 variety of devices and window or screen sizes from minimum to
                 maximum display size to ensure usability and satisfaction.
-              </p>
-              <p>
+                <br />
                 A responsive design adapts the web-page layout to the viewing
                 environment by using techniques such as fluid proportion-based
                 grids, flexible images, and CSS3 media queries, an extension of
@@ -396,7 +387,7 @@
         </section>
 
         <section>
-          <h2>TBD</h2>
+          <h2>Modern Features</h2>
           <ul>
             <li>
               <h3>Progress Web App</h3>
@@ -417,22 +408,93 @@
               </p>
             </li>
             <li>
-              <h3>2018</h3>
+              <h3>Single Page Application (SPA)</h3>
               <p>
-                Mobile web traffic reaches 52.2% of total internet traffic
-                worldwide.
+                A Single Page Application (SPA) is a web application that
+                interacts with the user by dynamically rewriting the current
+                page rather than loading entire new pages from the server. This
+                results in a more fluid user experience, similar to a desktop
+                application. SPAs use AJAX and HTML5 to create responsive and
+                dynamic web applications without constant page reloads.
+              </p>
+            </li>
+            <li>
+              <h3>WebAssembly (Wasm)</h3>
+              <p>
+                WebAssembly is a binary instruction format for a stack-based
+                virtual machine. It's designed as a portable target for the
+                compilation of high-level languages like C, C++, and Rust,
+                enabling deployment on the web for client and server
+                applications. WebAssembly aims to execute at native speed by
+                taking advantage of common hardware capabilities.
+              </p>
+            </li>
+            <li>
+              <h3>Server-Side Rendering (SSR)</h3>
+              <p>
+                Server-Side Rendering is the process of rendering web pages on
+                the server and sending fully rendered pages to the client. This
+                can improve initial page load times and is beneficial for SEO as
+                search engines can easily crawl the content. SSR is particularly
+                useful for content-heavy websites or applications where fast
+                initial load times are crucial.
+              </p>
+            </li>
+            <li>
+              <h3>JAMstack</h3>
+              <p>
+                JAMstack stands for JavaScript, APIs, and Markup. It's a modern
+                web development architecture based on client-side JavaScript,
+                reusable APIs, and prebuilt Markup. This approach separates the
+                front-end from data and business logic, enabling faster and more
+                secure websites. JAMstack sites are pre-rendered, and content is
+                served via a CDN.
+              </p>
+            </li>
+            <li>
+              <h3>Microservices Architecture</h3>
+              <p>
+                Microservices is an architectural style that structures an
+                application as a collection of small autonomous services,
+                modeled around a business domain. Each service is self-contained
+                and implements a single business capability. This approach
+                allows for better scalability, easier maintenance, and the
+                ability to use different technologies for different services as
+                needed.
               </p>
             </li>
           </ul>
         </section>
+        <section>
+          <h2>References</h2>
+          <ol>
+            <li>
+              TechTarget. (n.d.). <i>WAP Definition</i>.
+              <a
+                href="https://www.techtarget.com/searchmobilecomputing/definition/WAP"
+                target="_blank"
+                >https://www.techtarget.com/searchmobilecomputing/definition/WAP</a
+              >
+            </li>
+
+            <li>
+              DevelopersHome. (n.d.). <i>XHTML MP Tutorial</i>.
+              <a
+                href="https://www.developershome.com/wap/xhtmlmp/xhtml_mp_tutorial.asp?page=introduction"
+                target="_blank"
+                >https://www.developershome.com/wap/xhtmlmp/xhtml_mp_tutorial.asp?page=introduction</a
+              >
+            </li>
+          </ol>
+        </section>
       </main>
 
       <footer>
-        <p>
+        <!-- <p>
           The field of mobile web development continues to evolve rapidly,
           driven by technological advancements, changing user expectations, and
           the increasing centrality of mobile devices in our daily lives.
-        </p>
+        </p> -->
       </footer>
     </div>
     <script src="/src/js/table_of_content.js"></script>

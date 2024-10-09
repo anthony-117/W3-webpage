@@ -14,11 +14,32 @@ p {
   padding: 2rem;
 }
 
-a {
+ol {
+  padding: 0 4rem;
+}
+
+span {
+  text-decoration: underline;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+a:not(aside a) {
+  box-shadow: inset 0 0 0 0 #54b3d6;
+  color: #54b3d6;
+  padding: 0 0.25rem;
+  margin: 0 -0.25rem;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+a:not(aside a):hover {
+  color: #fff;
+  box-shadow: inset 200px 0 0 0 #54b3d6;
+}
+
+/* Presentational styles */
+aside a {
+  color: #54b3d6;
   text-decoration: none;
-  font-size: 300;
-  color: cadetblue;
-  cursor: pointer;
 }
 
 ul {
@@ -64,11 +85,13 @@ figcaption {
 aside {
   position: fixed;
   height: 100vh;
+  margin-top: 8vh;
   width: 17vw;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
   font-size: 0.4rem;
   padding: 1rem;
 }
@@ -80,11 +103,21 @@ aside i {
 
 header {
   margin-bottom: 15vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 header h1 {
   text-align: center;
   font-weight: 700;
   font-size: 4rem;
+}
+header img {
+  object-fit: contain;
+  border-radius: 5%;
+  margin-top: 3rem;
+  height: 50vh;
 }
 
 main {
@@ -92,6 +125,7 @@ main {
   flex-direction: column;
   justify-content: center;
   gap: 10vh;
+  margin-bottom: 3rem;
 }
 main section h2 {
   font-weight: 600;
@@ -103,6 +137,13 @@ main section ul > li {
 main section ul > li h3 {
   font-weight: 400;
   font-size: 1.8rem;
+}
+main section ul > li h3::after {
+  content: "";
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  border-bottom: 3px solid black;
 }
 main section ul > li p {
   margin: 2.5vh 0;

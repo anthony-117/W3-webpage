@@ -1,0 +1,99 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #333;
+  --event-bg: #3a4b5c;
+  --event-text: #fff;
+  --grid-color: #e0e0e0;
+  --active-day-bg: #f0f0f0;
+}
+.dark-theme {
+  --bg-color: #1e1e1e;
+  --text-color: #fff;
+  --event-bg: #3a4b5c;
+  --event-text: #fff;
+  --grid-color: #333;
+  --active-day-bg: #2a2a2a;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.calendar-container {
+  position: relative;
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+.calendar {
+  display: grid;
+  grid-template-columns: auto repeat(7, 1fr);
+  gap: 1px;
+  background-color: var(--grid-color);
+}
+.calendar > div {
+  background-color: var(--bg-color);
+  padding: 5px;
+  height: 60px;
+  box-sizing: border-box;
+}
+.fixed-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-color);
+}
+.header {
+  font-weight: bold;
+  text-align: center;
+  height: auto !important;
+}
+.time {
+  grid-column: 1;
+  text-align: right;
+  padding-right: 10px !important;
+  font-size: 0.8em;
+}
+.day-column {
+  position: relative;
+}
+.event {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  background-color: var(--event-bg);
+  color: var(--event-text);
+  border-radius: 3px;
+  padding: 2px 5px;
+  font-size: 0.7em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.active-day {
+  background-color: var(--active-day-bg) !important;
+}
+.current-time {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 2px solid red;
+  z-index: 10;
+}
+#theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--text-color);
+}
+.bx-sun {
+  color: rgb(175, 151, 13);
+}
+.bx-moon {
+  color: rebeccapurple;
+}

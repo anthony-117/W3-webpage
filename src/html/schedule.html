@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekly Event Calendar</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="/public/calendar.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/src/css/schedule.css" />
+  </head>
+  <body>
+    <div class="fixed-header">
+      <h1 class="current-month"></h1>
+      <div class="calendar" id="calendar-header"></div>
+      <button id="theme-toggle">
+        <i class="bx bx-sun"></i>
+      </button>
+    </div>
+    <div class="calendar-container">
+      <div class="calendar" id="calendar-body"></div>
+    </div>
+
+    <script type="module" src="/src/js/schedule.js"></script>
+  </body>
+</html>

@@ -6,11 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/css/styles.css" />
-    <link
-      rel="shortcut icon"
-      href="/recourses/favicon.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="/public/favicon.png" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -18,7 +14,57 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <title>History of Web</title>
+    <style>
+      /* Existing styles */
+
+      /* Select dropdown styles */
+      .select-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .select-dropdown select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      .select-dropdown .bx-chevron-down {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+
+      /* Style the select to match other navigation items */
+      .select-dropdown select {
+        font-family: inherit;
+        font-size: inherit;
+      }
+
+      /* Hide the default arrow in IE */
+      .select-dropdown select::-ms-expand {
+        display: none;
+        color: black;
+      }
+    </style>
+
+    <script>
+      function navigateTo(url) {
+        if (url) {
+          window.location.href = url;
+        }
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -31,19 +77,31 @@
         <ul>
           <li><a href="./web_history.html">Web History</a></li>
           <li><a href="./mobile_web_history.html">Mobile Development</a></li>
-          <li><a href="./web_browser_history.html">Web Browser</a></li>
-          <li><a href="./extra.html">Explore</a></li>
+          <li class="select-dropdown">
+            <select id="explore-select" onchange="navigateTo(this.value)">
+              <option value="">Explore</option>
+              <option value="./extra.html">Interesting Facts</option>
+              <option value="./schedule.html">Calendar</option>
+              <option value="./portfolio.html">Personal CV</option>
+            </select>
+            <i class="bx bx-chevron-down"></i>
+          </li>
+          <li>
+            <a href="/no_css/" target="_blank" rel="noopener noreferrer"
+              >No CSS</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
     <div class="home">
       <div class="home-card">
         <h1 class="home-title">Explore the Evolution of The Web</h1>
-        <p class="home-text">
+        <!-- <p class="home-text">
           Dive into the fascinating timeline of the World Wide Web, tracing its
           origins and milestones. Discover how web development has transformed
           communication and information sharing across the globe.
-        </p>
+        </p> -->
       </div>
       <div class="home-img">
         <img src="/public/images/home-img.jpg" alt="home image" />
@@ -58,44 +116,60 @@
       </ul> -->
     <main>
       <section class="topics">
-        <h1 class="section-title">
+        <h1 class="section-title auto-show">
           Explore the Evolution of the World Wide Web Through Our Comprehensive
           Timeline
         </h1>
         <div class="card-container">
+          <div class="topic-card auto-show">
+            <img src="/public/images/block.png" alt="block" class="auto-show" />
+            <h2 class="topic-title auto-show">
+              Dive into the History of Web
+              <br />
+              <br />
+              <br />
+            </h2>
+            <p class="topic-summury auto-show">
+              Explore the journey of web from its inception to modern-day
+              features.
+            </p>
+            <a href="web_history.html">Learn More</a>
+          </div>
           <div class="topic-card">
-            <img src="/public/images/block.png" alt="block" />
-            <h2 class="topic-title">
+            <img src="/public/images/block.png" alt="block" class="auto-show" />
+            <h2 class="topic-title auto-show">
               Discover the Milestones in Mobile Web Development and Its Impact
             </h2>
-            <p class="topic-summury">
+            <p class="topic-summury auto-show">
               Uncover how mobile web development has transformed user
               experiences over the years.
             </p>
-            <a href="">Learn More</a>
+            <a href="mobile_web_history.html">Learn More</a>
           </div>
           <div class="topic-card">
-            <img src="/public/images/block.png" alt="block" />
-            <h2 class="topic-title">
-              Dive into the History of Web Browsers and Their Evolution
-            </h2>
-            <p class="topic-summury">
-              Explore the journey of web browsers from their inception to
-              modern-day features.
-            </p>
-            <a href="">Learn More</a>
-          </div>
-          <div class="topic-card">
-            <img src="/public/images/block.png" alt="block" />
-            <h2 class="topic-title">
+            <img src="/public/images/block.png" alt="block" class="auto-show" />
+            <h2 class="topic-title auto-show">
               Understand the Key Security Issues That Have Shaped the Web
             </h2>
-            <p class="topic-summury">
+            <p class="topic-summury auto-show">
               Gain insights into the critical security challenges faced by web
               users today.
             </p>
-            <a href="">Learn More</a>
+            <a href="security_issues.html">Learn More</a>
           </div>
+        </div>
+      </section>
+      <section>
+        <div class="flex-container">
+          <div class="text-wrapper">
+            <h2 class="auto-show">Explore about Arabic Theater</h2>
+            <a href="./arabic.html">Learn More</a>
+          </div>
+          <img
+            src="/public/images/saf_840_cover_page.jpeg"
+            alt="مسرحية صيف ٨٤٠"
+            class="auto-show"
+          />
         </div>
       </section>
     </main>
@@ -112,10 +186,10 @@
       </div>
       <div class="footer-bottom">
         <div>© Anthony Abisaid. All rights reserved.</div>
-        <div>
+        <!-- <div>
           <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> |
           <a href="#">Cookies Settings</a>
-        </div>
+        </div> -->
       </div>
     </footer>
   </body>

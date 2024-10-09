@@ -186,8 +186,8 @@ function loadTrack(track_index) {
   track_art.style.backgroundImage = "url(" + music_list[track_index].img + ")";
   track_name.textContent = music_list[track_index].name;
   track_artist.textContent = music_list[track_index].artist;
-  now_playing.textContent =
-    "Playing music " + (track_index + 1) + " of " + music_list.length;
+  now_playing.textContent = "";
+  // "Playing music " + (track_index + 1) + " of " + music_list.length;
 
   updateTimer = setInterval(setUpdate, 1000);
 
@@ -242,7 +242,7 @@ function nextTrack() {
     track_index = 0;
   }
   loadTrack(track_index);
-  playTrack();
+  if (isPlaying) playTrack();
 }
 function prevTrack() {
   if (track_index > 0) {
@@ -251,7 +251,7 @@ function prevTrack() {
     track_index = music_list.length - 1;
   }
   loadTrack(track_index);
-  playTrack();
+  if (isPlaying) playTrack();
 }
 function seekTo() {
   let seekto = curr_track.duration * (seek_slider.value / 100);
