@@ -69,17 +69,33 @@ function createCalendar() {
   const calendarHeader = document.getElementById("calendar-header");
   const calendarBody = document.getElementById("calendar-body");
 
+  const startDate = new Date();
+
+  startDate.setDate(startDate.getDate() - startDate.getDay());
+
   calendarHeader.innerHTML = '<div class="header"></div>';
+
   days.forEach((day, index) => {
-    calendarHeader.innerHTML += `<div class="header">${day} ${index + 6}</div>`;
+    const currentDate = new Date(startDate);
+    currentDate.setDate(startDate.getDate() + index); // Increment the date for each day
+    const dayNumber = currentDate.getDate(); // Get the day of the month
+    calendarHeader.innerHTML += `<div class="header">${day} ${dayNumber}</div>`;
   });
+  // calendarHeader.innerHTML = '<div class="header"></div>';
+  // days.forEach((day, index) => {
+  //   calendarHeader.innerHTML += `<div class="header">${day} ${index + 6}</div>`;
+  // });
 
   for (let hour = 0; hour < 24; hour++) {
     const timeString =
       hour < 12
         ? `${hour === 0 ? 12 : hour} AM`
         : `${hour === 12 ? 12 : hour - 12} PM`;
-    calendarBody.innerHTML += `<div class="time">${timeString}</div>`;
+
+    calendarBody.innerHTML +=
+      hour != 0
+        ? `<div class="time">${timeString}</div>`
+        : `<div class="time"> </div>`;
     for (let day = 0; day < 7; day++) {
       calendarBody.innerHTML += `<div class="day-column" id="day${day}-hour${hour}"></div>`;
     }
@@ -130,7 +146,11 @@ function showCurrentTime() {
   const currentTimeDiv = document.createElement("div");
   currentTimeDiv.className = "current-time";
   currentTimeDiv.style.top = `${(minutes / 60) * 61}px`; // 61px to account for borders
-  document.querySelector(".day-column").appendChild(currentTimeDiv);
+  document
+    .getElementById(`day${now.getDay()}-hour${0}`)
+    .appendChild(currentTimeDiv);
+
+  // document.querySelector(".day-column").appendChild(currentTimeDiv);
   return minutes;
 }
 
@@ -161,6 +181,66 @@ function toggleTheme() {
     icon.classList.replace("bx-moon", "bx-sun");
   }
 }
+function addNewEvent(event) {
+  events.push(event);
+  addEvent(event);
+}
+
+function showAddEventForm() {
+  const form = document.createElement("form");
+  form.id = "add-event-form";
+  form.innerHTML = `
+    <h2>Add New Event</h2>
+    <label for="event-name">Event Name:</label>
+    <input type="text" id="event-name" required>
+    <fieldset>
+      <legend>Days:</legend>
+      ${days
+        .map(
+          (day, index) => `
+        <label>
+          <input type="checkbox" name="event-days" value="${index}">
+          ${day}
+        </label>
+      `
+        )
+        .join("")}
+    </fieldset>
+    <label for="event-start">Start Time:</label>
+    <input type="time" id="event-start" required>
+    <label for="event-end">End Time:</label>
+    <input type="time" id="event-end" required>
+    <label for="event-location">Location:</label>
+    <input type="text" id="event-location">
+    <div class="form-buttons">
+    <button type="button" id="cancel-add-event">Cancel</button>
+    <button type="submit">Add Event</button>
+    </div>
+  `;
+
+  document.body.appendChild(form);
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const newEvent = {
+      name: document.getElementById("event-name").value,
+      days: Array.from(
+        document.querySelectorAll('input[name="event-days"]:checked')
+      ).map((cb) => parseInt(cb.value)),
+      startTime: document.getElementById("event-start").value,
+      endTime: document.getElementById("event-end").value,
+      location: document.getElementById("event-location").value,
+    };
+    addNewEvent(newEvent);
+    document.body.removeChild(form);
+  });
+
+  document
+    .getElementById("cancel-add-event")
+    .addEventListener("click", function () {
+      document.body.removeChild(form);
+    });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   setThemeBasedOnBrowserPreference();
@@ -174,4 +254,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("theme-toggle")
     .addEventListener("click", toggleTheme);
+
+  document
+    .getElementById("add-event-btn")
+    .addEventListener("click", showAddEventForm);
 });

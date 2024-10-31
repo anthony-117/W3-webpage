@@ -19,51 +19,24 @@
       rel="stylesheet"
     />
     <title>History of Web</title>
-    <style>
-      /* Existing styles */
-
-      /* Select dropdown styles */
-      .select-dropdown {
-        position: relative;
-        display: inline-block;
-      }
-
-      .select-dropdown select {
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-      }
-
-      .select-dropdown .bx-chevron-down {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-      }
-
-      /* Style the select to match other navigation items */
-      .select-dropdown select {
-        font-family: inherit;
-        font-size: inherit;
-      }
-
-      /* Hide the default arrow in IE */
-      .select-dropdown select::-ms-expand {
-        display: none;
-        color: black;
-      }
-    </style>
 
     <script>
-      function navigateTo(url) {
-        if (url) {
-          window.location.href = url;
-        }
+      function toggleDropdown() {
+        document.getElementById("myDropdown").classList.toggle("show");
       }
+
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function (event) {
+        if (!event.target.matches(".dropdown a")) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+              openDropdown.classList.remove("show");
+            }
+          }
+        }
+      };
     </script>
   </head>
   <body>
@@ -71,20 +44,22 @@
       <nav>
         <div class="logo">
           <a href="#">
-            <img src="/public/favicon.png" alt="#" />
+            <img src="/public/favicon.png" alt="Logo" />
           </a>
         </div>
         <ul>
           <li><a href="./web_history.html">Web History</a></li>
           <li><a href="./mobile_web_history.html">Mobile Development</a></li>
-          <li class="select-dropdown">
-            <select id="explore-select" onchange="navigateTo(this.value)">
-              <option value="">Explore</option>
-              <option value="./extra.html">Interesting Facts</option>
-              <option value="./schedule.html">Calendar</option>
-              <option value="./portfolio.html">Personal CV</option>
-            </select>
-            <i class="bx bx-chevron-down"></i>
+          <li class="dropdown">
+            <a onclick="toggleDropdown()" href="#">
+              Explore
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div id="myDropdown" class="dropdown-content show">
+              <a href="./extra.html">Interesting Facts</a>
+              <a href="./schedule.html">Calendar</a>
+              <a href="./portfolio.html">Personal CV</a>
+            </div>
           </li>
           <li>
             <a href="/no_css/" target="_blank" rel="noopener noreferrer"

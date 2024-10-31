@@ -24,6 +24,9 @@
     />
   </head>
   <body>
+    <a href="cv-generator.html" class="button-90 new-cv btn"
+      ><i class="bx bx-plus"></i
+    ></a>
     <div class="wrapper">
       <div class="cover cover-left"></div>
       <div class="cover cover-right"></div>
@@ -408,5 +411,25 @@
     </div>
 
     <script type="module" src="/src/js/book.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script> -->
+    <!-- <script>
+      document
+        .getElementById("download-cv")
+        .addEventListener("click", function () {
+          // Select the element you want to convert to PDF
+          var element = document.querySelector(".profile-page");
+
+          // Use html2pdf to convert the element to PDF and download it
+          html2pdf()
+            .from(element)
+            .set({
+              margin: 1,
+              filename: "CV_Anthony_Abisaid.pdf",
+              html2canvas: { scale: 2 },
+              jsPDF: { format: "a4", orientation: "portrait" },
+            })
+            .save();
+        });
+    </script> -->
   </body>
 </html>

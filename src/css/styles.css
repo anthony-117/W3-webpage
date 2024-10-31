@@ -22,6 +22,9 @@ img {
 a {
   text-decoration: none;
 }
+a:hover {
+  transform: scale(1.05);
+}
 
 a:not(header a) {
   font-size: 1.3rem;
@@ -34,7 +37,8 @@ a:not(header a) {
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
-a:not(header a):before, a:not(header a):after {
+a:not(header a):before,
+a:not(header a):after {
   position: absolute;
   content: "";
   border-bottom: 3px solid rgb(0, 99, 228);
@@ -70,6 +74,7 @@ body {
 header {
   background-color: #1b262c;
   position: sticky;
+  z-index: 10000000;
 }
 header nav {
   position: sticky;
@@ -80,6 +85,9 @@ header nav {
   justify-content: start;
   align-items: center;
   gap: 1rem;
+}
+header nav ul li:hover {
+  transform: scale(1.05);
 }
 
 .logo {
@@ -288,4 +296,36 @@ main section:nth-of-type(3):nth-of-type(n + 4) {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
-}/*# sourceMappingURL=styles.css.map */
+} /*# sourceMappingURL=styles.css.map */
+.dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #1b262c;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  /* margin-top: 0.7rem; */
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-30%);
+}
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+  transform: scale(1.05);
+}
+.show {
+  display: none;
+}

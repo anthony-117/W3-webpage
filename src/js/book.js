@@ -82,6 +82,7 @@ backProfileBtn.onclick = () => {
 //opening book animation
 const coverRight = document.querySelector(".cover.cover-right");
 const pageLeft = document.querySelector(".book-page.page-left");
+const addbutton = document.querySelector(".button-90");
 //opening animation (cover right animation)
 setTimeout(() => {
   coverRight.classList.add("turn");
@@ -94,6 +95,9 @@ setTimeout(() => {
 //page animation (page left or Profile page animation)
 setTimeout(() => {
   pageLeft.style.zIndex = 20;
+  if (addbutton) {
+    addbutton.style.translate = "-350px";
+  }
 }, 3200);
 
 //openeting animation (page right animation)

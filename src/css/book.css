@@ -100,7 +100,9 @@ body {
   align-items: center;
 }
 .profile-page img {
-  max-width: 180px;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
   border-radius: 50%;
   border: 0.25rem solid var(--main-color);
   margin-bottom: 0.8rem;
@@ -516,5 +518,48 @@ body {
 @media (max-width: 768px) {
   .project-container {
     grid-template-columns: 1fr; /* Single column on smaller screens */
+  }
+}
+.button-90 {
+  position: fixed;
+  height: 70px;
+  width: 70px;
+  right: 10vw;
+  bottom: 10vh;
+  color: #fff;
+  /* padding: 15px 25px; */
+  border-radius: 50%;
+  background-color: var(--main-color);
+  background-image: radial-gradient(
+      93% 87% at 87% 89%,
+      rgba(0, 0, 0, 0.23) 0%,
+      transparent 86.18%
+    ),
+    radial-gradient(
+      66% 87% at 26% 20%,
+      rgba(255, 255, 255, 0.41) 0%,
+      rgba(255, 255, 255, 0) 69.79%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 16px;
+
+  text-align: center;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  cursor: pointer;
+  transform: translateX(350px);
+  z-index: 100;
+  i {
+    font-size: 2rem;
+  }
+  &:hover {
+    border: 2px dashed var(--main-color);
   }
 }
