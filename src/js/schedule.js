@@ -73,7 +73,7 @@ function createCalendar() {
 
   startDate.setDate(startDate.getDate() - startDate.getDay());
 
-  calendarHeader.innerHTML = '<div class="header"></div>';
+  calendarHeader.innerHTML = '<div class="time" style="width: 52px;"> </div>';
 
   days.forEach((day, index) => {
     const currentDate = new Date(startDate);
@@ -81,10 +81,6 @@ function createCalendar() {
     const dayNumber = currentDate.getDate(); // Get the day of the month
     calendarHeader.innerHTML += `<div class="header">${day} ${dayNumber}</div>`;
   });
-  // calendarHeader.innerHTML = '<div class="header"></div>';
-  // days.forEach((day, index) => {
-  //   calendarHeader.innerHTML += `<div class="header">${day} ${index + 6}</div>`;
-  // });
 
   for (let hour = 0; hour < 24; hour++) {
     const timeString =

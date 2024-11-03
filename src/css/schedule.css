@@ -39,6 +39,10 @@ body {
   box-sizing: border-box;
 }
 .fixed-header {
+  /* display: grid;
+  grid-template-columns: auto repeat(7, 1fr);
+  gap: 1px; */
+
   position: sticky;
   top: 0;
   z-index: 100;
@@ -149,7 +153,6 @@ body {
   color: #007bff;
 }
 
-/* Form styling */
 #add-event-form {
   position: fixed;
   top: 50%;

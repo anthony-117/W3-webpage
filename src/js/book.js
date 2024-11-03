@@ -113,8 +113,8 @@ pages.forEach((_, index) => {
   }, (index + 1) * 200 + 2100);
 });
 
-const downloadCV = document.querySelector("#download-cv");
+// const downloadCV = document.querySelector("#download-cv");
 
-downloadCV.onclick = () => {
-  alert("working on it");
-};
+// downloadCV.onclick = () => {
+//   alert("working on it");
+// };

@@ -21,6 +21,9 @@
       th {
         background-color: #f2f2f2;
       }
+      tr:nth-child(odd) {
+        background-color: #f2f2f2;
+      }
     </style>
   </head>
   <body>
@@ -437,6 +440,695 @@
           </ul>
         </section>
         <section>
+          <h2>Events</h2>
+          <ul>
+            <li>
+              <h3>Window Event Attributes</h3>
+
+              <table class="ws-table-all notranslate">
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onafterprint.asp">onafterprint</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run after the document is printed</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onbeforeprint.asp">onbeforeprint</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run before the document is printed</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onbeforeunload.asp">onbeforeunload</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the document is about to be unloaded
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onerror.asp">onerror</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when an error occurs</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onhashchange.asp">onhashchange</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when there has been changes to the anchor
+                      part of the a URL
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onload.asp">onload</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires after the page is finished loading</td>
+                  </tr>
+                  <tr>
+                    <td>onmessage</td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when the message is triggered</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onoffline.asp">onoffline</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the browser starts to work offline
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ononline.asp">ononline</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the browser starts to work online
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>onpagehide</td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when a user navigates away from a page
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onpageshow.asp">onpageshow</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when a user navigates to a page</td>
+                  </tr>
+                  <tr>
+                    <td>onpopstate</td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when the window's history changes</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onresize.asp">onresize</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when the browser window is resized</td>
+                  </tr>
+                  <tr>
+                    <td>onstorage</td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when a Web Storage area is updated</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onunload.asp">onunload</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires once a page has unloaded (or the browser window has
+                      been closed)
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Form Events</h3>
+              <table>
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onblur.asp">onblur</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires the moment that the element loses focus</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onchange.asp">onchange</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires the moment when the value of the element is changed
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oncontextmenu.asp">oncontextmenu</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when a context menu is triggered</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onfocus.asp">onfocus</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires the moment when the element gets focus</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oninput.asp">oninput</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when an element gets user input</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oninvalid.asp">oninvalid</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when an element is invalid</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onreset.asp">onreset</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when the Reset button in a form is clicked</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onsearch.asp">onsearch</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the user writes something in a search field
+                      (for &lt;input="search"&gt;)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onselect.asp">onselect</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires after some text has been selected in an element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onsubmit.asp">onsubmit</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when a form is submitted</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Keyboard Events</h3>
+              <table>
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onkeydown.asp">onkeydown</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when a user is pressing a key</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onkeypress.asp">onkeypress</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when a user presses a key</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onkeyup.asp">onkeyup</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when a user releases a key</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Mouse Events</h3>
+              <table>
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onclick.asp">onclick</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires on a mouse click on the element</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondblclick.asp">ondblclick</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires on a mouse double-click on the element</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onmousedown.asp">onmousedown</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when a mouse button is pressed down on an element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onmousemove.asp">onmousemove</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the mouse pointer is moving while it is over an
+                      element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onmouseout.asp">onmouseout</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the mouse pointer moves out of an element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onmouseover.asp">onmouseover</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when the mouse pointer moves over an element</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onmouseup.asp">onmouseup</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when a mouse button is released over an element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>onmousewheel</td>
+                    <td><i>script</i></td>
+                    <td>
+                      <span class="deprecated">Deprecated.</span> Use the
+                      <a href="ev_onwheel.asp">onwheel</a> attribute instead
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onwheel.asp">onwheel</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the mouse wheel rolls up or down over an
+                      element
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Drag Events</h3>
+              <table>
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondrag.asp">ondrag</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when an element is dragged</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondragend.asp">ondragend</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run at the end of a drag operation</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondragenter.asp">ondragenter</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when an element has been dragged to a
+                      valid drop target
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondragleave.asp">ondragleave</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when an element leaves a valid drop
+                      target
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="height: 32px">
+                      <a href="ev_ondragover.asp">ondragover</a>
+                    </td>
+                    <td style="height: 32px"><i>script</i></td>
+                    <td style="height: 32px">
+                      Script to be run when an element is being dragged over a
+                      valid drop target
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondragstart.asp">ondragstart</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run at the start of a drag operation</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondrop.asp">ondrop</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when dragged element is being dropped
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onscroll.asp">onscroll</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when an element's scrollbar is being
+                      scrolled
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Clipboard Events</h3>
+              <table class="ws-table-all notranslate">
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oncopy.asp">oncopy</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the user copies the content of an element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oncut.asp">oncut</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when the user cuts the content of an element</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onpaste.asp">onpaste</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the user pastes some content in an element
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Media Events</h3>
+              <table class="ws-table-all notranslate">
+                <tbody>
+                  <tr>
+                    <th style="width: 180px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onabort.asp">onabort</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run on abort</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oncanplay.asp">oncanplay</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when a file is ready to start playing
+                      (when it has buffered enough to begin)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="ev_oncanplaythrough.asp">oncanplaythrough</a>
+                    </td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when a file can be played all the way to
+                      the end without pausing for buffering
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>oncuechange</td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the cue changes in a &lt;track&gt;
+                      element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="ev_ondurationchange.asp">ondurationchange</a>
+                    </td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the length of the media changes
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>onemptied</td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when something bad happens and the file
+                      is suddenly unavailable (like unexpectedly disconnects)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onended.asp">onended</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the media has reach the end (a
+                      useful event for messages like "thanks for listening")
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_av_onerror.asp">onerror</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when an error occurs when the file is
+                      being loaded
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onloadeddata.asp">onloadeddata</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when media data is loaded</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="ev_onloadedmetadata.asp">onloadedmetadata</a>
+                    </td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when meta data (like dimensions and
+                      duration) are loaded
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onloadstart.asp">onloadstart</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run just as the file begins to load before
+                      anything is actually loaded
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onpause.asp">onpause</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the media is paused either by the
+                      user or programmatically
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onplay.asp">onplay</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the media is ready to start playing
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onplaying.asp">onplaying</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the media actually has started
+                      playing
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onprogress.asp">onprogress</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the browser is in the process of
+                      getting the media data
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onratechange.asp">onratechange</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run each time the playback rate changes (like
+                      when a user switches to a slow motion or fast forward
+                      mode)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onseeked.asp">onseeked</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the seeking attribute is set to
+                      false indicating that seeking has ended
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onseeking.asp">onseeking</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the seeking attribute is set to true
+                      indicating that seeking is active
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onstalled.asp">onstalled</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the browser is unable to fetch the
+                      media data for whatever reason
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onsuspend.asp">onsuspend</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when fetching the media data is stopped
+                      before it is completely loaded for whatever reason
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ontimeupdate.asp">ontimeupdate</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the playing position has changed
+                      (like when the user fast forwards to a different point in
+                      the media)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onvolumechange.asp">onvolumechange</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run each time the volume is changed which
+                      (includes setting the volume to "mute")
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onwaiting.asp">onwaiting</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the media has paused but is expected
+                      to resume (like when the media pauses to buffer more data)
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Misc Events</h3>
+              <table class="ws-table-all notranslate">
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ontoggle.asp">ontoggle</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the user opens or closes the &lt;details&gt;
+                      element
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>PHP Spaceship Operator (<=>)</h2>
+          <p>
+            The spaceship operator (<=>) is a comparison operator introduced in
+            PHP 7.0. It returns:
+          </p>
+          <ol>
+            <li>-1 if the left operand is less than the right operand</li>
+            <li>0 if the operands are equal</li>
+            <li>1 if the left operand is greater than the right operand</li>
+          </ol>
+
+          <div class="example">
+            <pre><code>// Basic usage
+  $result = 1 <=> 1;  // Returns 0 (equal)
+  $result = 1 <=> 2;  // Returns -1 (left is less)
+  $result = 2 <=> 1;  // Returns 1 (left is greater)
+  
+  // String comparison
+  $result = "a" <=> "b";  // Returns -1
+  $result = "b" <=> "b";  // Returns 0
+  $result = "c" <=> "b";  // Returns 1</code></pre>
+          </div>
+
+          <p>Common use cases include:</p>
+          <ol>
+            <li>Sorting arrays with custom comparison logic</li>
+            <li>Implementing comparison methods in classes</li>
+            <li>Simplifying complex conditional comparisons</li>
+          </ol>
+
+          <div class="example">
+            <pre><code>// Using with usort()
+  $fruits = ["apple", "banana", "cherry"];
+  usort($fruits, function($a, $b) {
+      return $a <=> $b;
+  });
+  
+  // In a class comparison method
+  public function compareTo($other) {
+      return $this->value <=> $other->value;
+  }</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Static Variables in PHP</h2>
+          <p>
+            Static variables in PHP maintain their value between function calls.
+            They are declared using the <code>static</code> keyword and are
+            initialized only once when the function is first called.
+          </p>
+
+          <div class="example">
+            <pre><code>function counter() {
+      static $count = 0;
+      return ++$count;
+  }
+  
+  echo counter(); // Outputs: 1
+  echo counter(); // Outputs: 2
+  echo counter(); // Outputs: 3</code></pre>
+          </div>
+
+          <p>Key characteristics of static variables:</p>
+          <ol>
+            <li>They maintain their value between function invocations</li>
+            <li>They are initialized only once</li>
+            <li>They are only accessible within the function's scope</li>
+            <li>
+              They can be used to maintain state without using global variables
+            </li>
+          </ol>
+
+          <p>Static variables in classes:</p>
+          <div class="example">
+            <pre><code>class Logger {
+      private static $logCount = 0;
+      
+      public function log($message) {
+          self::$logCount++;
+          echo "[Log #" . self::$logCount . "] $message\n";
+      }
+      
+      public static function getLogCount() {
+          return self::$logCount;
+      }
+  }</code></pre>
+          </div>
+
+          <p>Common use cases:</p>
+          <ol>
+            <li>Counting function calls</li>
+            <li>Caching expensive computations</li>
+            <li>Implementing singleton patterns</li>
+            <li>Managing shared state within a class</li>
+          </ol>
+        </section>
+        <!-- <section>
           <h2>References</h2>
           <ol class="reference-list">
             <li>
@@ -496,9 +1188,10 @@
               >
             </li>
           </ol>
-        </section>
+        </section> -->
       </main>
     </div>
     <script src="/src/js/table_of_content.js"></script>
+    <script type="module" src="/src/js/reference_generator.js"></script>
   </body>
 </html>

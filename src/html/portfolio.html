@@ -34,9 +34,13 @@
       <div class="book">
         <div class="book-page page-left">
           <div class="profile-page">
-            <img src="/public/arabic_favicon.png" alt="smth" />
-            <h1>Anthony Abisaid</h1>
-            <h3>Web Developer</h3>
+            <img
+              id="profile_image"
+              src="/public/arabic_favicon.png"
+              alt="smth"
+            />
+            <h1 id="fullname">Anthony Abisaid</h1>
+            <h3 id="jobTitle">Web Developer</h3>
 
             <div class="social-media">
               <a href="https://github.com/anthony-117" target="_blank">
@@ -56,7 +60,7 @@
               </a>
             </div>
 
-            <p>
+            <p id="introduction">
               My name is Anthony Abisaid, I am a dedicated Computer Engineering
               student pursuing a Bachelor's degree, currently at my third year
               of study. With a strong foundation in computer science principles,
@@ -73,7 +77,7 @@
         <!-- page 1 & 2 -->
         <div class="book-page page-right turn" id="turn-1">
           <!-- page 1 (work experience) -->
-          <div class="page-front">
+          <div class="page-front" id="workExperience">
             <h1 class="title">Work Experience</h1>
             <p class="waterdrop">Working on it</p>
 
@@ -124,7 +128,7 @@
             </span>
           </div>
           <!-- page 2 Education -->
-          <div class="page-back">
+          <div class="page-back" id="education">
             <h1 class="title">Education</h1>
             <div class="workeduc-box">
               <!-- <div class="workeduc-content">
@@ -167,7 +171,7 @@
         <!-- page 3 & 4 -->
         <div class="book-page page-right turn" id="turn-2">
           <!-- page 3 my serivces -->
-          <div class="page-front">
+          <div class="page-front" id="services">
             <h1 class="title">My Services</h1>
             <div class="services-box">
               <div class="services-content">
@@ -217,7 +221,7 @@
           </div>
 
           <!-- page 4 my skills -->
-          <div class="page-back">
+          <div class="page-back" id="skills">
             <h1 class="title">My Skills</h1>
 
             <div class="skills-box">
@@ -289,7 +293,7 @@
         <!-- page 5 & 6 -->
         <div class="book-page page-right turn" id="turn-3">
           <!-- page 5 Latest Projects or my portfolio -->
-          <div class="page-front">
+          <div class="page-front" id="projects">
             <h1 class="title">Projects</h1>
 
             <!-- <div class="portfolio-box">
@@ -411,7 +415,9 @@
     </div>
 
     <script type="module" src="/src/js/book.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script type="module" src="/src/js/download_cv.js"></script>
+
     <!-- <script>
       document
         .getElementById("download-cv")

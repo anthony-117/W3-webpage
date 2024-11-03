@@ -5,6 +5,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/css/header.css" />
+    <link rel="stylesheet" href="/src/css/loading.css" />
     <link rel="stylesheet" href="/src/css/styles.css" />
     <link rel="shortcut icon" href="/public/favicon.png" type="image/x-icon" />
     <link
@@ -20,7 +22,7 @@
     />
     <title>History of Web</title>
 
-    <script>
+    <!-- <script>
       function toggleDropdown() {
         document.getElementById("myDropdown").classList.toggle("show");
       }
@@ -37,10 +39,19 @@
           }
         }
       };
-    </script>
+    </script> -->
   </head>
   <body>
-    <header>
+    <div id="loading-overlay">
+      <div id="loading-sphere">
+        <canvas id="sphere-canvas"></canvas>
+      </div>
+      <div class="loading-bar-container">
+        <div class="loading-bar" id="loading-bar"></div>
+      </div>
+      <div class="loading-text" id="loading-text">Loading... 0%</div>
+    </div>
+    <header class="header">
       <nav>
         <div class="logo">
           <a href="#">
@@ -48,18 +59,36 @@
           </a>
         </div>
         <ul>
-          <li><a href="./web_history.html">Web History</a></li>
-          <li><a href="./mobile_web_history.html">Mobile Development</a></li>
           <li class="dropdown">
-            <a onclick="toggleDropdown()" href="#">
+            <a href="#"
+              >Documentation
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div class="dropdown-content show">
+              <a href="./web_history.html">Web History</a>
+              <a href="./mobile_web_history.html" style="text-align: center"
+                >Mobile Development</a
+              >
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">
               Explore
               <i class="bx bx-chevron-down"></i>
             </a>
-            <div id="myDropdown" class="dropdown-content show">
-              <a href="./extra.html">Interesting Facts</a>
+            <div class="dropdown-content show">
+              <a href="./extra.html">Research</a>
+              <a href="./arabic.html" target="_blank" rel="noopener noreferrer"
+                >Arabic Page</a
+              >
               <a href="./schedule.html">Calendar</a>
               <a href="./portfolio.html">Personal CV</a>
             </div>
+          </li>
+          <li>
+            <a href="./wordle.html" target="_blank" rel="noopener noreferrer"
+              >Wordle</a
+            >
           </li>
           <li>
             <a href="/no_css/" target="_blank" rel="noopener noreferrer"
@@ -68,6 +97,9 @@
           </li>
         </ul>
       </nav>
+      <!-- <button id="theme-toggle">
+        <i class="bx bx-sun" style="font-size: 30px"></i>
+      </button> -->
     </header>
     <div class="home">
       <div class="home-card">
@@ -78,18 +110,10 @@
           communication and information sharing across the globe.
         </p> -->
       </div>
-      <div class="home-img">
-        <img src="/public/images/home-img.jpg" alt="home image" />
-      </div>
+      <div id="sphere-container" class="sphere-container"></div>
     </div>
-    <!-- <nav>
-      <ul>
-        <li><a href="web_history.html">Web History</a></li>
-        <li><a href="web_browser_history.html">Web Browser History</a></li>
-        <li><a href="mobile_web_history.html">Mobile Web History</a></li>
-        <li><a href="extra.html">Extra</a></li>
-      </ul> -->
-    <main>
+
+    <main id="main-content">
       <section class="topics">
         <h1 class="section-title auto-show">
           Explore the Evolution of the World Wide Web Through Our Comprehensive
@@ -167,5 +191,9 @@
         </div> -->
       </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script type="module" src="/src/js/sphere.js"></script>
+    <!-- <script type="module" src="/src/js/theme_picker.js"></script> -->
+    <script type="module" src="/src/js/loading.js"></script>
   </body>
 </html>
