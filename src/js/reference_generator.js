@@ -83,6 +83,16 @@ const references = [
     title: "PHP: Static Keyword - Manual",
     url: "https://www.php.net/manual/en/language.oop5.static.php",
   },
+  {
+    source: "W3schools",
+    title: "HTML Input Tag",
+    url: "https://www.w3schools.com/tags/tag_input.asp",
+  },
+  {
+    source: "W3schools",
+    title: "HTML Button Tag",
+    url: "https://www.w3schools.com/tags/tag_button.asp",
+  },
 ];
 
 const referenceSection = createReferenceSection(references);

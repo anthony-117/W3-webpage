@@ -1029,6 +1029,154 @@
             </li>
           </ul>
         </section>
+        <section>
+          <h2>Understanding Input vs Button Elements in HTML</h2>
+
+          <h3>The Input Tag (&lt;input&gt;)</h3>
+          <div class="example-container">
+            <p>
+              The input tag is a self-closing element used to create various
+              form controls for user input. It uses the
+              <code>type</code> attribute to define its behavior.
+            </p>
+
+            <h3>Common Input Types:</h3>
+            <div class="demo-section">
+              <div class="input-group">
+                <label>Text Input: </label>
+                <input type="text" placeholder="Enter text" />
+              </div>
+
+              <div class="input-group">
+                <label>Password: </label>
+                <input type="password" placeholder="Enter password" />
+              </div>
+
+              <div class="input-group">
+                <label>Email: </label>
+                <input type="email" placeholder="Enter email" />
+              </div>
+
+              <div class="input-group">
+                <label>Number: </label>
+                <input type="number" placeholder="Enter number" />
+              </div>
+
+              <div class="input-group">
+                <label>Date: </label>
+                <input type="date" />
+              </div>
+
+              <div class="input-group">
+                <label>Checkbox: </label>
+                <input type="checkbox" /> Option 1
+              </div>
+
+              <div class="input-group">
+                <label>Radio: </label>
+                <input type="radio" name="radio" /> Option 1
+                <input type="radio" name="radio" /> Option 2
+              </div>
+
+              <div class="input-group">
+                <label>File: </label>
+                <input type="file" />
+              </div>
+            </div>
+
+            <h3>Key Characteristics of &lt;input&gt;:</h3>
+            <ul>
+              <li>Self-closing tag (no end tag needed)</li>
+              <li>Uses type attribute to define functionality</li>
+              <li>Cannot contain other HTML elements</li>
+              <li>Value is set through attributes</li>
+              <li>Primarily used for collecting user input</li>
+            </ul>
+          </div>
+
+          <h2>The Button Tag (&lt;button&gt;)</h2>
+          <div class="example-container">
+            <p>
+              The button tag creates a clickable button that can contain other
+              HTML elements.
+            </p>
+
+            <h3>Button Examples:</h3>
+            <div class="demo-section">
+              <button type="button">Simple Text Button</button>
+
+              <button type="button">
+                <strong>Bold Text</strong> with <em>Formatting</em>
+              </button>
+            </div>
+
+            <h3>Key Characteristics of &lt;button&gt;:</h3>
+            <ul>
+              <li>Requires closing tag</li>
+              <li>Can contain other HTML elements (text, images, icons)</li>
+              <li>More flexible for styling</li>
+              <li>Three types: submit, reset, button</li>
+              <li>Primarily used for user actions</li>
+            </ul>
+          </div>
+
+          <h2>Key Differences</h2>
+          <table>
+            <tr>
+              <th>Feature</th>
+              <th>&lt;input&gt;</th>
+              <th>&lt;button&gt;</th>
+            </tr>
+            <tr>
+              <td>Primary Purpose</td>
+              <td>Collecting user input in various formats</td>
+              <td>Triggering actions or form submission</td>
+            </tr>
+            <tr>
+              <td>Tag Structure</td>
+              <td>Self-closing tag</td>
+              <td>Requires closing tag</td>
+            </tr>
+            <tr>
+              <td>Content</td>
+              <td>Value set through attributes only</td>
+              <td>Can contain HTML elements and text</td>
+            </tr>
+            <tr>
+              <td>Flexibility</td>
+              <td>Specific purpose based on type attribute</td>
+              <td>General purpose, highly customizable</td>
+            </tr>
+            <tr>
+              <td>Common Uses</td>
+              <td>Text fields, checkboxes, radio buttons, file uploads</td>
+              <td>Submit buttons, action buttons, toggles</td>
+            </tr>
+          </table>
+
+          <h2>When to Use Each</h2>
+          <div class="example-container">
+            <h3>Use &lt;input&gt; when:</h3>
+            <ul>
+              <li>
+                You need to collect user input (text, numbers, dates, etc.)
+              </li>
+              <li>
+                You want to create form controls (checkboxes, radio buttons)
+              </li>
+              <li>You need specialized input types (email, tel, password)</li>
+              <li>You want to handle file uploads</li>
+            </ul>
+
+            <h3>Use &lt;button&gt; when:</h3>
+            <ul>
+              <li>You need a clickable element to trigger actions</li>
+              <li>You want to include HTML content inside the button</li>
+              <li>You need more complex styling options</li>
+              <li>You're creating call-to-action elements</li>
+            </ul>
+          </div>
+        </section>
 
         <section>
           <h2>PHP Spaceship Operator (<=>)</h2>
