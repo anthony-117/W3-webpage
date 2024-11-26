@@ -1,514 +1,118 @@
-const WORDS = [
-  "APPLE",
-  "BEACH",
-  "BRAIN",
-  "CLOUD",
-  "DANCE",
-  "EAGLE",
-  "FLAME",
-  "GHOST",
-  "HEART",
-  "JUICE",
-  "LIGHT",
-  "MUSIC",
-  "PAINT",
-  "QUICK",
-  "RIVER",
-  "SOUND",
-  "STONE",
-  "TIGER",
-  "WATER",
-  "WORLD",
-  "CHAIR",
-  "GRAPE",
-  "PLANT",
-  "HOUSE",
-  "FLOOR",
-  "CLOCK",
-  "SHINE",
-  "STORM",
-  "PLANE",
-  "TRACK",
-  "GREEN",
-  "FROST",
-  "FIELD",
-  "POWER",
-  "BREAD",
-  "WHITE",
-  "BLACK",
-  "NIGHT",
-  "SHORE",
-  "MOUSE",
-  "LEMON",
-  "PEACH",
-  "SUGAR",
-  "HONEY",
-  "BERRY",
-  "FAITH",
-  "CRANE",
-  "DRIVE",
-  "BRAVE",
-  "PEACE",
-  "HUMOR",
-  "GIANT",
-  "CROWN",
-  "BRUSH",
-  "EARTH",
-  "FIGHT",
-  "LOVER",
-  "GRASS",
-  "CANDY",
-  "BLAST",
-  "SHAPE",
-  "SIGHT",
-  "BLISS",
-  "SMILE",
-  "JOLLY",
-  "PEARL",
-  "SHARK",
-  "QUEEN",
-  "ROBOT",
-  "YOUTH",
-  "CHESS",
-  "KNIFE",
-  "STAGE",
-  "GLORY",
-  "TASTE",
-  "MOIST",
-  "CREAM",
-  "CHAOS",
-  "CLEAN",
-  "SHINY",
-  "WINDY",
-  "STEEL",
-  "FRUIT",
-  "PRIDE",
-  "DEMON",
-  "BLINK",
-  "DRILL",
-  "CABLE",
-  "FIERY",
-  "PULSE",
-  "BLEND",
-  "SILLY",
-  "FRESH",
-  "BRICK",
-  "COAST",
-  "VOICE",
-  "ANGEL",
-  "ALONE",
-  "BLOOM",
-  "WORRY",
-  "DAISY",
-  "CHILL",
-  "CRISP",
-  "GLARE",
-  "MARCH",
-  "TRACE",
-  "PRIME",
-  "FLOAT",
-  "BEAST",
-  "GRACE",
-  "TOAST",
-  "SHIFT",
-  "ALERT",
-  "BRISK",
-  "CRAFT",
-  "COZY",
-  "SPARE",
-  "RAPID",
-  "FABLE",
-  "BLAZE",
-  "THINK",
-  "PLAIN",
-  "SPICE",
-  "FLASH",
-  "SWIFT",
-  "SKILL",
-  "SMALL",
-  "QUIET",
-  "HASTE",
-  "SHADE",
-  "CHAIR",
-  "FINAL",
-  "UNITY",
-  "GROVE",
-  "GRANT",
-  "LIGHT",
-  "NOBLE",
-  "MIRTH",
-  "TREND",
-  "THORN",
-  "FLOOD",
-  "UNITY",
-  "CLEAR",
-  "BLEND",
-  "SPLIT",
-  "TRACE",
-  "BRAVE",
-  "GLINT",
-  "CRAVE",
-  "STEAD",
-  "SHADE",
-  "GLADE",
-  "WORTH",
-  "SHIFT",
-  "CRUST",
-  "GRAND",
-  "STORM",
-  "ALERT",
-  "CLOVE",
-  "SLICE",
-  "GAUGE",
-  "SHALE",
-  "SPIKE",
-  "CIDER",
-  "CRISP",
-  "SHAPE",
-  "NORTH",
-  "SOUTH",
-  "VALUE",
-  "PRIME",
-  "SHOCK",
-  "KNACK",
-  "GLOSS",
-  "GAZEY",
-  "FANCY",
-  "FLUTE",
-  "CHALK",
-  "BLOCK",
-  "FRAME",
-  "GLIDE",
-  "CHAMP",
-  "GLOOM",
-  "GREET",
-  "HONOR",
-  "BRAVE",
-  "SHINE",
-  "CHURN",
-  "TWIST",
-  "CHARM",
-  "CLOAK",
-  "CRAFT",
-  "BLINK",
-  "RANCH",
-  "BLURB",
-  "GRIND",
-  "PRIDE",
-  "SPURT",
-  "FLOUR",
-  "FOCUS",
-  "FORGE",
-  "GRADE",
-  "HEDGE",
-  "LAYER",
-  "LOVER",
-  "MERGE",
-  "MOVER",
-  "NERVE",
-  "PIVOT",
-  "SCOUT",
-  "SCOOP",
-  "STAGE",
-  "STAIR",
-  "THROB",
-  "WIDEN",
-  "YEARN",
-  "REACT",
-  "SHAPE",
-  "GLORY",
-  "MOUNT",
-  "PLANK",
-  "SCOPE",
-  "PRIZE",
-  "TWEET",
-  "VAPOR",
-  "PRISM",
-  "ALPHA",
-  "AXIOM",
-  "BEFIT",
-  "CHIME",
-  "CHASE",
-  "FETCH",
-  "FEAST",
-  "GLARE",
-  "GRAIN",
-  "MERIT",
-  "MORAL",
-  "NOBLE",
-  "ONSET",
-  "SCENE",
-  "SLEET",
-  "TWINE",
-  "WRING",
-  "PRUNE",
-  "GAZER",
-  "FLICK",
-  "SAVOR",
-  "REACT",
-  "CHASE",
-  "PRONE",
-  "BRISK",
-  "DWELL",
-  "FAITH",
-  "FROTH",
-  "JOVIA",
-  "VIVID",
-  "GLEAM",
-  "GLEAM",
-  "REACT",
-  "SPLIT",
-  "BRAND",
-  "BLINK",
-  "SPOIL",
-  "THROB",
-  "THUMB",
-  "KNAVE",
-  "RIVET",
-  "SHIFT",
-  "CLASP",
-  "GLOVE",
-  "TREAT",
-  "THROW",
-  "WATCH",
-  "ZONAL",
-  "REIGN",
-  "SHONE",
-  "CHUCK",
-  "CHASE",
-  "CURVE",
-  "EXCEL",
-  "DAILY",
-  "GREET",
-  "SHOUT",
-  "GROWN",
-  "SHOVE",
-  "ROOST",
-  "PRONE",
-  "FLING",
-  "SHOOT",
-  "CLING",
-  "SHOCK",
-  "THINK",
-  "CRISP",
-  "SHAPE",
-  "QUOTA",
-  "FROWN",
-  "WORST",
-  "VIVID",
-  "STAKE",
-  "SHINE",
-  "CRISP",
-  "FLICK",
-  "STARK",
-  "PLUSH",
-  "SHIFT",
-  "STRAW",
-  "STALL",
-  "TWINE",
-  "YACHT",
-  "SHRUB",
-  "THROB",
-  "SPINE",
-  "SPIKE",
-  "SHAPE",
-  "SPARK",
-  "CHURN",
-  "TWIST",
-  "SMILE",
-  "SHOUT",
-  "PRONE",
-  "BRISK",
-  "BLEND",
-  "CRISP",
-  "SCOOP",
-  "STINT",
-  "FLASH",
-  "STOMP",
-  "SPLIT",
-  "QUART",
-  "GRASP",
-  "TWICE",
-  "SMALL",
-  "STORM",
-  "SHORE",
-  "CLAMP",
-  "ALIVE",
-  "THORN",
-  "CRISP",
-  "SHIFT",
-  "SPACE",
-  "CRANK",
-  "SCENE",
-  "SHAPE",
-  "GLIDE",
-  "CLEAR",
-  "UNITY",
-  "BLISS",
-  "THROB",
-  "GLOBE",
-  "STARE",
-  "TREND",
-  "FLAIR",
-  "BLAZE",
-  "BRINK",
-  "PRIDE",
-  "SCENT",
-  "FROWN",
-  "RUSTY",
-  "CHAIR",
-  "ALERT",
-  "GLORY",
-  "EAGER",
-  "CLEAR",
-  "FLARE",
-  "RIVAL",
-  "SPICE",
-  "GLIMP",
-  "CLONE",
-  "VAULT",
-  "GROVE",
-  "TALLY",
-  "STAGE",
-  "CRISP",
-  "SHAKE",
-  "PLUSH",
-  "THINK",
-  "BIRTH",
-  "VIVID",
-  "BLOOM",
-  "PLANT",
-  "SCOPE",
-  "TWIST",
-  "FLOUR",
-  "SHIFT",
-  "MERIT",
-  "STAND",
-  "CHAOS",
-  "CLEAR",
-  "PIVOT",
-  "SWOON",
-  "YEARN",
-  "CRACK",
-  "PLUSH",
-  "CLOVE",
-  "STAIR",
-  "SHORE",
-  "GLADE",
-  "CRISP",
-  "SHALE",
-  "TWIRL",
-  "LOVER",
-  "GLEAM",
-  "SMILE",
-  "BLUSH",
-  "SLANT",
-  "STILT",
-  "CHIME",
-  "CRUMB",
-  "FRAIL",
-  "BRAVE",
-  "FRAME",
-  "SHIFT",
-  "GLOOM",
-  "TWICE",
-  "STORK",
-  "SHAKE",
-  "SLOPE",
-  "STOUT",
-  "CRANK",
-  "SHAPE",
-  "CRISP",
-  "STARE",
-  "GLOBE",
-  "ALPHA",
-  "SPACE",
+async function isValidWord(word) {
+  try {
+    const response = await fetch(
+      `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+    );
+    return response.ok;
+  } catch (error) {
+    console.error("Error checking word:", error);
+    return false;
+  }
+}
 
-  // New pluralized 5-letter words for 4-letter singular nouns
-  "CHAIRS",
-  "BLUES",
-  "TREES",
-  "FACES",
-  "ROCKS",
-  "PAGES",
-  "LAMPS",
-  "SHIPS",
-  "PLANS",
-  "BOATS",
-  "DOORS",
-  "FLAGS",
-  "WAVES",
-  "SEEDS",
-  "HILLS",
-  "PLAYS",
-  "VIEWS",
-  "WANDS",
-  "CUBES",
-  "MAPS",
-  "FILMS",
-  "WHEELS",
-  "GATES",
-  "JOKES",
-  "GAMES",
-  "YARDS",
-  "TOWNS",
-  "DRUMS",
-  "BELLS",
-  "SHOES",
-  "PLANS",
-  "RINGS",
-  "BOONS",
-  "ROLLS",
-  "COINS",
-  "WANDS",
-  "SLOTS",
-  "PUMPS",
-  "CHAINS",
-  "LAMBS",
-  "ROSES",
-  "FISTS",
-  "FIRES",
-  "CROWS",
-  "SWANS",
-  "GROWS",
-  "PONDS",
-  "BONDS",
-  "TRAILS",
-  "JOLTS",
-  "GIRLS",
-  "TWIGS",
-  "TRIMS",
-  "BILLS",
-  "FOOLS",
-  "JUMPS",
-  "WAVES",
-  "GRIPS",
-  "GIRLS",
-  "SIGHS",
-  "LOOPS",
-  "FLAGS",
-  "CHOPS",
-  "CLOAKS",
-  "TUNES",
-  "GLIMPS",
-  "TRICKS",
-  "BRUSH",
-  "CASTS",
-  "TUNES",
-  "WHIRLS",
-];
+function getWordOfTheDay() {
+  const words = [
+    "SPEAK",
+    "DREAM",
+    "CLOUD",
+    "LIGHT",
+    "BRAIN",
+    "GUARD",
+    "SHARP",
+    "POWER",
+    "SHINE",
+    "HEART",
+  ];
+  return words[Math.floor(Math.random() * words.length)];
+}
 
-class WordleGame {
+class Wordle {
   constructor() {
-    this.word = WORDS[Math.floor(Math.random() * WORDS.length)];
+    this.initializeStats();
+    this.startNewGame();
+
+    // this.initializeBoard();
+    this.initializeKeyboard();
+  }
+
+  initializeStats() {
+    // Load stats from localStorage or set defaults
+    const savedStats = JSON.parse(localStorage.getItem("wordleStats")) || {
+      gamesPlayed: 0,
+      gamesWon: 0,
+      currentStreak: 0,
+      maxStreak: 0,
+    };
+    this.stats = savedStats;
+  }
+
+  saveStats() {
+    localStorage.setItem("wordleStats", JSON.stringify(this.stats));
+  }
+
+  startNewGame() {
+    this.wordOfTheDay = getWordOfTheDay();
     this.currentRow = 0;
     this.currentTile = 0;
     this.gameOver = false;
-    this.setupGrid();
-    this.setupKeyboard();
+    this.guesses = [];
+
+    // Clear the grid
+    const grid = document.querySelector(".grid");
+    grid.innerHTML = "";
+    this.initializeBoard();
+
+    // Reset keyboard
+    const keys = document.querySelectorAll(".key");
+    keys.forEach((key) => {
+      key.classList.remove("correct", "present", "absent");
+    });
   }
 
-  setupGrid() {
+  updateStats(won) {
+    this.stats.gamesPlayed++;
+    if (won) {
+      this.stats.gamesWon++;
+      this.stats.currentStreak++;
+      this.stats.maxStreak = Math.max(
+        this.stats.maxStreak,
+        this.stats.currentStreak
+      );
+    } else {
+      this.stats.currentStreak = 0;
+    }
+    this.saveStats();
+  }
+
+  showGameEndScreen(won) {
+    const gameEndPopup = document.querySelector(".game-end-popup");
+    const resultTitle = gameEndPopup.querySelector(".result-title");
+    const wordReveal = gameEndPopup.querySelector(".word-reveal");
+
+    // Update title based on game result
+    resultTitle.textContent = won ? "Magnificent!" : "Game Over";
+
+    // Show the word
+    wordReveal.textContent = `The word was: ${this.wordOfTheDay}`;
+
+    // Update statistics
+    this.updateStats(won);
+
+    // Display stats
+    gameEndPopup.querySelector(".played").textContent = this.stats.gamesPlayed;
+    gameEndPopup.querySelector(".win-percentage").textContent =
+      Math.round((this.stats.gamesWon / this.stats.gamesPlayed) * 100) || 0;
+    gameEndPopup.querySelector(".current-streak").textContent =
+      this.stats.currentStreak;
+    gameEndPopup.querySelector(".max-streak").textContent =
+      this.stats.maxStreak;
+
+    // Show the popup
+    gameEndPopup.style.display = "block";
+    document.querySelector(".popup-overlay").style.display = "block";
+  }
+
+  initializeBoard() {
     const grid = document.querySelector(".grid");
     for (let i = 0; i < 6; i++) {
       const row = document.createElement("div");
@@ -522,7 +126,7 @@ class WordleGame {
     }
   }
 
-  setupKeyboard() {
+  initializeKeyboard() {
     const keys = document.querySelectorAll(".key");
     keys.forEach((key) => {
       key.addEventListener("click", () => this.handleKeyPress(key.textContent));
@@ -530,146 +134,171 @@ class WordleGame {
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
-        this.handleKeyPress("enter");
+        this.handleSubmit();
       } else if (e.key === "Backspace") {
-        this.handleKeyPress("⌫");
+        this.handleDelete();
       } else if (/^[a-zA-Z]$/.test(e.key)) {
         this.handleKeyPress(e.key);
       }
     });
   }
 
-  handleKeyPress(key) {
+  async handleSubmit() {
     if (this.gameOver) return;
+    if (this.currentTile !== 5) {
+      this.showMessage("Not enough letters");
+      return;
+    }
 
-    key = key.toLowerCase();
+    const row = document.querySelectorAll(".row")[this.currentRow];
+    const tiles = row.querySelectorAll(".tile");
+    const guess = Array.from(tiles)
+      .map((tile) => tile.textContent)
+      .join("")
+      .toLowerCase();
 
-    if (key === "enter") {
-      this.checkWord();
-    } else if (key === "⌫") {
-      this.deleteLetter();
-    } else if (/^[a-z]$/.test(key) && this.currentTile < 5) {
-      this.addLetter(key.toUpperCase());
+    const isValid = await isValidWord(guess);
+    if (!isValid) {
+      this.showMessage("Not a valid word");
+      return;
+    }
+
+    this.checkGuess(guess, tiles);
+    this.guesses.push(guess);
+    this.currentRow++;
+    this.currentTile = 0;
+
+    if (guess === this.wordOfTheDay.toLowerCase()) {
+      this.gameOver = true;
+      this.showGameEndScreen(true);
+    } else if (this.currentRow === 6) {
+      this.gameOver = true;
+      this.showGameEndScreen(false);
     }
   }
 
-  addLetter(letter) {
+  handleDelete() {
+    if (this.currentTile > 0) {
+      this.currentTile--;
+      const row = document.querySelectorAll(".row")[this.currentRow];
+      const tile = row.querySelectorAll(".tile")[this.currentTile];
+      tile.textContent = "";
+    }
+  }
+
+  handleKeyPress(key) {
+    if (this.gameOver) return;
     if (this.currentTile < 5) {
       const row = document.querySelectorAll(".row")[this.currentRow];
-      const tile = row.children[this.currentTile];
-      tile.textContent = letter;
-      tile.classList.add("filled");
-      tile.classList.add("pop");
-      setTimeout(() => {
-        tile.classList.remove("pop");
-      }, 100);
+      const tile = row.querySelectorAll(".tile")[this.currentTile];
+      tile.textContent = key.toUpperCase();
       this.currentTile++;
     }
   }
 
-  deleteLetter() {
-    if (this.currentTile > 0) {
-      this.currentTile--;
-      const row = document.querySelectorAll(".row")[this.currentRow];
-      const tile = row.children[this.currentTile];
-      tile.textContent = "";
-      tile.classList.remove("filled");
-    }
-  }
+  checkGuess(guess, tiles) {
+    const wordArray = this.wordOfTheDay.toLowerCase().split("");
+    const guessArray = guess.split("");
+    const keyboardKeys = document.querySelectorAll(".key");
 
-  checkWord() {
-    if (this.currentTile !== 5) {
-      this.showMessage("Not enough letters");
-      this.shakeRow();
-      return;
-    }
-
-    const row = document.querySelectorAll(".row")[this.currentRow];
-    const tiles = Array.from(row.children);
-    const guess = tiles.map((tile) => tile.textContent).join("");
-
-    if (!WORDS.includes(guess)) {
-      this.showMessage("Not in word list");
-      this.shakeRow();
-      return;
-    }
-
-    // Check letters
-    const letterStates = {};
-    const remainingLetters = {};
-
-    [...this.word].forEach((letter) => {
-      remainingLetters[letter] = (remainingLetters[letter] || 0) + 1;
-    });
-
-    // First pass: Check for correct positions
-    tiles.forEach((tile, index) => {
-      const letter = tile.textContent;
-      if (letter === this.word[index]) {
-        tile.classList.add("correct");
-        remainingLetters[letter]--;
-        letterStates[letter] = "correct";
-      }
-    });
-
-    // Second pass: Check for present letters
-    tiles.forEach((tile, index) => {
-      const letter = tile.textContent;
-      if (!tile.classList.contains("correct")) {
-        if (remainingLetters[letter] > 0) {
-          tile.classList.add("present");
-          remainingLetters[letter]--;
-          if (!letterStates[letter] || letterStates[letter] !== "correct") {
-            letterStates[letter] = "present";
-          }
-        } else {
-          tile.classList.add("absent");
-          if (!letterStates[letter]) {
-            letterStates[letter] = "absent";
-          }
-        }
-      }
-    });
-
-    // Update keyboard
-    Object.entries(letterStates).forEach(([letter, state]) => {
-      const key = Array.from(document.querySelectorAll(".key:not(.wide)")).find(
-        (k) => k.textContent.toUpperCase() === letter
+    guessArray.forEach((letter, index) => {
+      const tile = tiles[index];
+      const keyboardKey = Array.from(keyboardKeys).find(
+        (key) => key.textContent.toLowerCase() === letter
       );
-      if (key && (!key.classList.contains("correct") || state === "correct")) {
-        key.className = `key ${state}`;
+
+      if (letter === wordArray[index]) {
+        tile.classList.add("correct");
+        keyboardKey?.classList.add("correct");
+      } else if (wordArray.includes(letter)) {
+        tile.classList.add("present");
+        if (!keyboardKey?.classList.contains("correct")) {
+          keyboardKey?.classList.add("present");
+        }
+      } else {
+        tile.classList.add("absent");
+        keyboardKey?.classList.add("absent");
       }
     });
-
-    if (guess === this.word) {
-      this.showMessage("Correct!");
-      this.gameOver = true;
-    } else if (this.currentRow === 5) {
-      this.showMessage(`Game Over! The word was ${this.word}`);
-      this.gameOver = true;
-    } else {
-      this.currentRow++;
-      this.currentTile = 0;
-    }
   }
 
-  showMessage(text) {
-    const message = document.querySelector(".message");
-    message.textContent = text;
-    message.style.display = "block";
+  showMessage(message) {
+    const messageElement = document.querySelector(".message");
+    messageElement.textContent = message;
+    messageElement.style.display = "block";
     setTimeout(() => {
-      message.style.display = "none";
+      messageElement.style.display = "none";
     }, 2000);
-  }
-
-  shakeRow() {
-    const row = document.querySelectorAll(".row")[this.currentRow];
-    row.classList.add("shake");
-    setTimeout(() => {
-      row.classList.remove("shake");
-    }, 500);
   }
 }
 
-// Start the game
-const game = new WordleGame();
+document.querySelector(".help-button").addEventListener("click", () => {
+  document.querySelector(".popup").style.display = "block";
+  document.querySelector(".popup-overlay").style.display = "block";
+});
+
+document.querySelector(".popup-overlay").addEventListener("click", () => {
+  document.querySelector(".popup").style.display = "none";
+  document.querySelector(".popup-overlay").style.display = "none";
+});
+document.querySelector(".close-button").addEventListener("click", () => {
+  document.querySelector(".popup").style.display = "none";
+  document.querySelector(".popup-overlay").style.display = "none";
+});
+document.querySelector(".play-again").addEventListener("click", () => {
+  document.querySelector(".game-end-popup").style.display = "none";
+  document.querySelector(".popup-overlay").style.display = "none";
+  game.startNewGame();
+});
+
+const game = new Wordle();
+
+class ThemeManager {
+  constructor() {
+    this.initializeTheme();
+    this.setupEventListeners();
+  }
+
+  initializeTheme() {
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme) {
+      // Use saved theme if it exists
+      this.setTheme(savedTheme);
+    } else {
+      // Check system preference
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      this.setTheme(prefersDark ? "dark" : "light");
+    }
+  }
+
+  setupEventListeners() {
+    // Listen for theme toggle button clicks
+    const themeButton = document.querySelector(".theme-button");
+    themeButton.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      this.setTheme(newTheme);
+    });
+
+    // Listen for system theme changes
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        if (!localStorage.getItem("theme")) {
+          // Only auto-switch if user hasn't manually set a theme
+          this.setTheme(e.matches ? "dark" : "light");
+        }
+      });
+  }
+
+  setTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }
+}
+
+new ThemeManager();

@@ -1,49 +1,50 @@
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-const events = [
-  {
-    name: "ECO350",
-    days: [1, 5],
-    startTime: "09:30",
-    endTime: "10:45",
-    location: "",
-  },
-  {
-    name: "GEL313",
-    days: [2, 4],
-    startTime: "09:30",
-    endTime: "10:45",
-    location: "",
-  },
-  {
-    name: "GEN350",
-    days: [1, 5],
-    startTime: "11:00",
-    endTime: "12:15",
-    location: "",
-  },
-  {
-    name: "GIN321",
-    days: [2, 4],
-    startTime: "15:30",
-    endTime: "16:45",
-    location: "",
-  },
-  {
-    name: "GIN446",
-    days: [2, 4],
-    startTime: "17:00",
-    endTime: "18:15",
-    location: "",
-  },
-  {
-    name: "GEL445",
-    days: [5],
-    startTime: "12:30",
-    endTime: "15:15",
-    location: "",
-  },
-];
+// const events = [
+//   {
+//     name: "ECO350",
+//     days: [1, 5],
+//     startTime: "09:30",
+//     endTime: "10:45",
+//     location: "",
+//   },
+//   {
+//     name: "GEL313",
+//     days: [2, 4],
+//     startTime: "09:30",
+//     endTime: "10:45",
+//     location: "",
+//   },
+//   {
+//     name: "GEN350",
+//     days: [1, 5],
+//     startTime: "11:00",
+//     endTime: "12:15",
+//     location: "",
+//   },
+//   {
+//     name: "GIN321",
+//     days: [2, 4],
+//     startTime: "15:30",
+//     endTime: "16:45",
+//     location: "",
+//   },
+//   {
+//     name: "GIN446",
+//     days: [2, 4],
+//     startTime: "17:00",
+//     endTime: "18:15",
+//     location: "",
+//   },
+//   {
+//     name: "GEL445",
+//     days: [5],
+//     startTime: "12:30",
+//     endTime: "15:15",
+//     location: "",
+//   },
+// ];
+// const events = [];
 
 function setCurrentMonth() {
   const months = [
@@ -182,66 +183,82 @@ function addNewEvent(event) {
   addEvent(event);
 }
 
-function showAddEventForm() {
-  const form = document.createElement("form");
-  form.id = "add-event-form";
-  form.innerHTML = `
-    <h2>Add New Event</h2>
-    <label for="event-name">Event Name:</label>
-    <input type="text" id="event-name" required>
-    <fieldset>
-      <legend>Days:</legend>
-      ${days
-        .map(
-          (day, index) => `
-        <label>
-          <input type="checkbox" name="event-days" value="${index}">
-          ${day}
-        </label>
-      `
-        )
-        .join("")}
-    </fieldset>
-    <label for="event-start">Start Time:</label>
-    <input type="time" id="event-start" required>
-    <label for="event-end">End Time:</label>
-    <input type="time" id="event-end" required>
-    <label for="event-location">Location:</label>
-    <input type="text" id="event-location">
-    <div class="form-buttons">
-    <button type="button" id="cancel-add-event">Cancel</button>
-    <button type="submit">Add Event</button>
-    </div>
-  `;
+// function showAddEventForm() {
+// const form = document.createElement("form");
+// form.id = "add-event-form";
+// form.method = "POST";
+// form.innerHTML = `
+//   <h2>Add New Event</h2>
+//   <label for="event-name">Event Name:</label>
+//   <input type="text" id="event-name" name="event_name" required>
 
-  document.body.appendChild(form);
+//   <fieldset>
+//     <legend>Days:</legend>
+//     ${days
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const newEvent = {
-      name: document.getElementById("event-name").value,
-      days: Array.from(
-        document.querySelectorAll('input[name="event-days"]:checked')
-      ).map((cb) => parseInt(cb.value)),
-      startTime: document.getElementById("event-start").value,
-      endTime: document.getElementById("event-end").value,
-      location: document.getElementById("event-location").value,
-    };
-    addNewEvent(newEvent);
-    document.body.removeChild(form);
-  });
+//       .map(
+//         (day, index) => `
+//       <label>
+//         <input type="checkbox" name="event-days[]" value="${index}">
+//         ${day}
+//       </label>
+//     `
+//       )
+//       .join("")}
+//   </fieldset>
+//   <label for="event-start">Start Time:</label>
+//   <input type="time" id="event-start" name="from" required>
+//   <label for="event-end">End Time:</label>
+//   <input type="time" id="event-end" required name="to">
+//   <label for="event-location">Location:</label>
+//   <input type="text" id="event-location" name="location">
+//   <div class="form-buttons">
+//   <button type="button" id="cancel-add-event">Cancel</button>
+//   <button type="submit">Add Event</button>
+//   </div>
+// `;
 
-  document
-    .getElementById("cancel-add-event")
-    .addEventListener("click", function () {
-      document.body.removeChild(form);
-    });
-}
+// document.body.appendChild(form);
+// let form = document.getElementById("add-event-form");
 
-document.addEventListener("DOMContentLoaded", function () {
+// form.style.display = "block";
+
+// form.addEventListener("submit", function (e) {
+//   e.preventDefault();
+//   const newEvent = {
+//     name: document.getElementById("event-name").value,
+//     days: Array.from(
+//       document.querySelectorAll('input[name="event-days"]:checked')
+//     ).map((cb) => parseInt(cb.value)),
+//     startTime: document.getElementById("event-start").value,
+//     endTime: document.getElementById("event-end").value,
+//     location: document.getElementById("event-location").value,
+//   };
+//   addNewEvent(newEvent);
+//   document.body.removeChild(form);
+// });
+
+//   document
+//     .getElementById("cancel-add-event")
+//     .addEventListener("click", function () {
+//       form.style.display = "none";
+//     });
+// }
+
+document.addEventListener("DOMContentLoaded", async function () {
   setThemeBasedOnBrowserPreference();
   setCurrentMonth();
   createCalendar();
+  try {
+    const response = await fetch("includes/schedule.inc.php");
+    if (!response.ok) {
+      throw new Error("Failed to fetch events");
+    }
+    events = await response.json();
+    events.forEach(addEvent);
+  } catch (error) {
+    console.error("Error loading events:", error);
+  }
   events.forEach(addEvent);
   setActiveDay();
   const currentMinutes = showCurrentTime();
@@ -250,8 +267,63 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("theme-toggle")
     .addEventListener("click", toggleTheme);
-
   document
     .getElementById("add-event-btn")
     .addEventListener("click", showAddEventForm);
+});
+
+function showAddEventForm() {
+  let form = document.getElementById("add-event-form");
+  form.style.display = "block";
+}
+
+document
+  .getElementById("cancel-add-event")
+  .addEventListener("click", function () {
+    document.getElementById("add-event-form").style.display = "none";
+  });
+document
+  .getElementById("add-event-form")
+  .addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    try {
+      const response = await fetch("includes/schedule.inc.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add event");
+      }
+
+      const newEvent = {
+        name: document.getElementById("event-name").value,
+        days: Array.from(
+          document.querySelectorAll('input[name="event-days"]:checked')
+        ).map((cb) => parseInt(cb.value)),
+        startTime: document.getElementById("event-start").value,
+        endTime: document.getElementById("event-end").value,
+        location: document.getElementById("event-location").value,
+      };
+
+      addEvent(newEvent);
+      events.push(newEvent);
+      this.style.display = "none";
+      this.reset();
+    } catch (error) {
+      console.error("Error:", toString(error));
+      alert("Failed to add event. Please try again.");
+    }
+  });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => {
+    setTimeout(() => {
+      alert.remove();
+    }, 5000);
+  });
 });

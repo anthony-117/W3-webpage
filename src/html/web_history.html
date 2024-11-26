@@ -6,7 +6,7 @@
     <title>The World Wide Web: A Comprehensive History and Future Trends</title>
     <link rel="shortcut icon" href="/public/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="/src/css/web_history.css" />
-    <!-- <link rel="stylesheet" href="/src/css/header.css" /> -->
+    <link rel="stylesheet" href="/src/css/header.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -14,23 +14,68 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <aside class="table_of_content">
       <!-- <i class="fa-solid fa-bars"></i> -->
-      <a href="index.html"
-        ><img
-          src="/public/favicon.png"
-          alt=""
-          style="width: 100%; height: 10vh"
-      /></a>
       <nav></nav>
     </aside>
+    <header class="header">
+      <nav>
+        <div class="logo">
+          <a href="./index.html">
+            <img src="/public/favicon.png" alt="Logo" />
+          </a>
+        </div>
+        <ul>
+          <li class="dropdown">
+            <a href="#"
+              >Documentation
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div class="dropdown-content show">
+              <a href="./web_history.html">Web History</a>
+              <a href="./mobile_web_history.html" style="text-align: center"
+                >Mobile Development</a
+              >
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">
+              Explore
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div class="dropdown-content show">
+              <a href="./research.html">Research</a>
+              <a href="./arabic.html" target="_blank" rel="noopener noreferrer"
+                >Arabic Page</a
+              >
+              <a href="./schedule.html">Calendar</a>
+              <a href="./portfolio.html">Personal CV</a>
+            </div>
+          </li>
+          <li>
+            <a href="./wordle.html" target="_blank" rel="noopener noreferrer"
+              >Wordle</a
+            >
+          </li>
+          <li>
+            <a href="/no_css/" target="_blank" rel="noopener noreferrer"
+              >No CSS</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
     <div class="body">
-      <header>
+      <div class="title">
         <h1>The World Wide Web: A Comprehensive History and Future Trends</h1>
         <img src="/public/images/web_image.jpeg" alt="web_image" />
-      </header>
+      </div>
 
       <main>
         <section>

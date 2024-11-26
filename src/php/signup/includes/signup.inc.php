@@ -1,6 +1,7 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
     $username = $_POST["username"];
     $pwd = $_POST["pwd"];
     $email = strtolower($_POST["email"]);
@@ -31,9 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($errors) {
             $_SESSION["errors_signup"] = $errors;
+            echo "Eroor";
             header('Location: ../index.php');
             die();
         }
+        header('Location: ../schedule.php');
+
 
 
         create_user($pdo, $username, $email, $pwd);

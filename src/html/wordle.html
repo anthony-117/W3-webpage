@@ -1,12 +1,3 @@
-<!-- <!doctype html>
-<html lang="en">
-  <head>
-  </head>
-  <body>
-
-      </div>
-    </div>
-  -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,46 +12,66 @@
     />
   </head>
   <body>
+    <div class="popup-overlay"></div>
     <div class="popup" style="display: none">
-      <h1 class="title">how to play</h1>
-      <h2>guess the wordle in 6 tries</h2>
+      <button class="close-button">×</button>
+      <h1>How To Play</h1>
+      <h2>Guess the Wordle in 6 tries.</h2>
       <ul>
-        <li>each guess must be a valid 5-letter word.</li>
+        <li>Each guess must be a valid 5-letter word.</li>
         <li>
-          the color of the titles will change to close your guess was to the
-          word.
+          The color of the tiles will change to show how close your guess was to
+          the word.
         </li>
       </ul>
-      <h3 class="examples">examples</h3>
-      <div class="example-box">
-        <span class="blocks green">w </span>
-        <span class="blocks">o </span>
-        <span class="blocks">r </span>
-        <span class="blocks">d </span>
-        <span class="blocks">y </span>
-        <p class="description">
-          <b>w</b> is in the word and in the correct spot.
-        </p>
+      <h3>Examples</h3>
+      <div class="example-grid">
+        <div class="example-tile green">W</div>
+        <div class="example-tile">O</div>
+        <div class="example-tile">R</div>
+        <div class="example-tile">D</div>
+        <div class="example-tile">Y</div>
       </div>
-      <div class="example-box">
-        <span class="blocks">l </span>
-        <span class="blocks yellow">i </span>
-        <span class="blocks">g </span>
-        <span class="blocks">h </span>
-        <span class="blocks">t </span>
-        <p class="description">
-          <b>i</b> is in the word but in the wrong spot.
-        </p>
+      <p class="example-description">
+        <strong>W</strong> is in the word and in the correct spot.
+      </p>
+
+      <div class="example-grid">
+        <div class="example-tile">L</div>
+        <div class="example-tile yellow">I</div>
+        <div class="example-tile">G</div>
+        <div class="example-tile">H</div>
+        <div class="example-tile">T</div>
       </div>
-      <div class="example-box">
-        <span class="blocks">r </span>
-        <span class="blocks">o </span>
-        <span class="blocks">g </span>
-        <span class="blocks">u </span>
-        <span class="blocks">e </span>
-        <p class="description"><b>u</b> is not in the word in any spot.</p>
+      <p class="example-description">
+        <strong>I</strong> is in the word but in the wrong spot.
+      </p>
+
+      <div class="example-grid">
+        <div class="example-tile">R</div>
+        <div class="example-tile">O</div>
+        <div class="example-tile">G</div>
+        <div class="example-tile gray">U</div>
+        <div class="example-tile">E</div>
       </div>
+      <p class="example-description">
+        <strong>U</strong> is not in the word in any spot.
+      </p>
     </div>
+
+    <header class="header">
+      <div class="theme-toggle">
+        <button class="theme-button" aria-label="Toggle theme">
+          <i class="bx bx-sun light-icon"></i>
+          <i class="bx bx-moon dark-icon"></i>
+        </button>
+      </div>
+      <!-- <div style="width: 28px"></div> -->
+      <h1>Wordle</h1>
+      <button class="help-button" aria-label="Help">
+        <i class="bx bx-question-mark"></i>
+      </button>
+    </header>
     <div class="game-container">
       <div class="grid"></div>
       <div class="keyboard">
@@ -101,6 +112,31 @@
       </div>
     </div>
     <div class="message"></div>
+    <div class="game-end-popup" style="display: none">
+      <h1 class="result-title">Game Over!</h1>
+      <div class="statistics">
+        <div class="stat-row">
+          <div class="stat-item">
+            <span class="stat-number played">0</span>
+            <span class="stat-label">Played</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number win-percentage">0</span>
+            <span class="stat-label">Win %</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number current-streak">0</span>
+            <span class="stat-label">Current Streak</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number max-streak">0</span>
+            <span class="stat-label">Max Streak</span>
+          </div>
+        </div>
+      </div>
+      <div class="word-reveal"></div>
+      <button class="play-again">Play Again</button>
+    </div>
     <script type="module" src="/src/js/wordle.js"></script>
   </body>
 </html>

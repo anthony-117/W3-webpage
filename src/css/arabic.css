@@ -14,18 +14,24 @@ p {
   background-color: transparent;
   backdrop-filter: blur(3px);
 }
-
 body {
   width: 100vw;
   height: 100vh;
   line-height: 1.6;
   font-size: 2.5vh;
-  padding: 0 3vw;
   background-image: url(/public/images/background.jpeg);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+.body {
+  width: 100vw;
+  height: 100vh;
+  line-height: 1.6;
+  font-size: 2.5vh;
+  padding: 0 3vw;
 }
 
 main {
@@ -120,4 +126,4 @@ header img {
   to {
     right: calc(var(--width) * -1);
   }
-}/*# sourceMappingURL=arabic.css.map */
+} /*# sourceMappingURL=arabic.css.map */
