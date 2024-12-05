@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fillable CV Template</title>
+    <link rel="stylesheet" href="css/book.css" />
+    <link rel="stylesheet" href="css/cv-generator.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="public/portfolio.png"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .button-90 {
+        position: fixed;
+        right: 10vw;
+        bottom: 10vh;
+        color: #fff;
+        padding: 15px 25px;
+        border-radius: 50%;
+        background-color: #4c43cd;
+        background-image: radial-gradient(
+            93% 87% at 87% 89%,
+            rgba(0, 0, 0, 0.23) 0%,
+            transparent 86.18%
+          ),
+          radial-gradient(
+            66% 87% at 26% 20%,
+            rgba(255, 255, 255, 0.41) 0%,
+            rgba(255, 255, 255, 0) 69.79%,
+            rgba(255, 255, 255, 0) 100%
+          );
+        box-shadow: 2px 19px 31px rgba(0, 0, 0, 0.2);
+        font-weight: bold;
+        font-size: 16px;
+        border: 0;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        cursor: pointer;
+        z-index: 100;
+      }
+      .input-field {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+      .textarea-field {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <button class="button-90" id="finish-cv">Finish</button> -->
+    <a href="#" id="returnButton" class="button-90 btn">
+      <i class="bx bx-left-arrow-alt"></i
+    ></a>
+    <div class="wrapper">
+      <div class="cover cover-left"></div>
+      <div class="cover cover-right"></div>
+
+      <div class="book">
+        <div class="book-page page-left">
+          <div class="profile-page">
+            <div class="image-upload-container">
+              <img
+                src="public/arabic_favicon.png"
+                alt="Profile Picture"
+                id="profileImage"
+              />
+              <input
+                type="file"
+                id="imageUpload"
+                accept="image/*"
+                style="display: none"
+              />
+              <button
+                class="upload-button"
+                onclick="document.getElementById('imageUpload').click()"
+              >
+                <i class="bx bxs-camera"></i>
+              </button>
+            </div>
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Full Name"
+              id="fullName"
+            />
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Job Title"
+              id="jobTitle"
+            />
+            <div class="social-media">
+              <div class="social-item">
+                <a href="#" target="_blank" class="social-icon">
+                  <i class="bx bxl-github"></i>
+                </a>
+                <input
+                  type="text"
+                  id="github-link"
+                  class="social-link"
+                  placeholder="GitHub URL"
+                  data-social="github"
+                />
+              </div>
+              <div class="social-item">
+                <a href="#" target="_blank" class="social-icon">
+                  <i class="bx bxl-linkedin-square"></i>
+                </a>
+                <input
+                  type="text"
+                  id="linkedin-link"
+                  class="social-link"
+                  placeholder="LinkedIn URL"
+                  data-social="linkedin"
+                />
+              </div>
+              <div class="social-item">
+                <a href="#" target="_blank" class="social-icon">
+                  <i class="bx bxl-gmail"></i>
+                </a>
+                <input
+                  type="text"
+                  id="gmail-link"
+                  class="social-link"
+                  placeholder="Email address"
+                  data-social="gmail"
+                />
+              </div>
+              <div class="social-item">
+                <a href="#" target="_blank" class="social-icon">
+                  <i class="bx bxl-docker"></i>
+                </a>
+                <input
+                  type="text"
+                  id="docker-link"
+                  class="social-link"
+                  placeholder="Docker URL"
+                  data-social="docker"
+                />
+              </div>
+            </div>
+
+            <textarea
+              class="textarea-field"
+              placeholder="Write a brief introduction about yourself"
+              id="introduction"
+            ></textarea>
+            <div class="btn-box">
+              <button type="submit" class="btn" id="submit-cv">Submit</button>
+              <a href="#" class="btn contact-me" id="download-cv">Contact Me</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- page 1 & 2 -->
+        <div class="book-page page-right turn" id="turn-1">
+          <!-- page 1 (work experience) -->
+          <div class="page-front">
+            <h1 class="title">Work Experience</h1>
+            <div id="workExperience" class="workeduc-box">
+              <!-- Content is added Here -->
+            </div>
+            <button id="addWorkExperience" class="add-button">
+              Add Work Experience
+              <i class="bx bx-plus"></i>
+            </button>
+
+            <span class="number-page">1</span>
+
+            <span class="nextprev-btn" data-page="turn-1">
+              <i class="bx bx-chevron-right"></i>
+            </span>
+          </div>
+          <!-- page 2 Education -->
+          <div class="page-back">
+            <h1 class="title">Education</h1>
+            <div id="education" class="workeduc-box">
+              <!-- Education entries will be added here dynamically -->
+            </div>
+            <button id="addEducation" class="add-button">
+              Add Education <i class="bx bx-plus"></i>
+            </button>
+
+            <span class="number-page">2</span>
+
+            <span class="nextprev-btn back" data-page="turn-1">
+              <i class="bx bx-chevron-left"></i>
+            </span>
+          </div>
+        </div>
+        <!-- page 3 & 4 -->
+        <div class="book-page page-right turn" id="turn-2">
+          <!-- page 3 my services -->
+          <div class="page-front">
+            <h1 class="title">My Services</h1>
+            <div id="services" class="services-box">
+              <!-- Service entries will be added here dynamically -->
+            </div>
+            <button id="addService" class="add-button">
+              Add Service <i class="bx bx-plus"></i>
+            </button>
+
+            <span class="number-page">3</span>
+
+            <span class="nextprev-btn" data-page="turn-2">
+              <i class="bx bx-chevron-right"></i>
+            </span>
+          </div>
+
+          <!-- page 4 my skills -->
+          <div class="page-back">
+            <h1 class="title">My Skills</h1>
+
+            <button id="addSkillTopic" class="add-button">
+              Add Topic <i class="bx bx-plus"></i>
+            </button>
+            <div class="skill-box" id="skillTopic">
+              <!-- Content will be added here -->
+            </div>
+
+            <span class="number-page">4</span>
+
+            <span class="nextprev-btn back" data-page="turn-2">
+              <i class="bx bx-chevron-left"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- page 5 & 6 -->
+        <div class="book-page page-right turn" id="turn-3">
+          <!-- page 5 Latest Projects or my portfolio -->
+          <div class="page-front">
+            <h1 class="title">Projects</h1>
+
+            <div class="project-container" id="projectContainer">
+              <!-- Project entries will be added here dynamically -->
+            </div>
+            <button id="addProject" class="add-button">
+              Add Project <i class="bx bx-plus"></i>
+            </button>
+
+            <span class="number-page">5</span>
+
+            <span class="nextprev-btn" data-page="turn-3">
+              <i class="bx bx-chevron-right"></i>
+            </span>
+          </div>
+
+          <!-- page 6 contact me -->
+          <div class="page-back">
+            <h1 class="title">Contact Me</h1>
+
+            <div class="contact-box">
+              <form action="">
+                <input
+                  type="text"
+                  class="field"
+                  placeholder="Full Name"
+                  required
+                  disabled
+                />
+                <input
+                  type="email"
+                  class="field"
+                  placeholder="Email Address"
+                  required
+                  disabled
+                />
+                <textarea
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="10"
+                  class="field"
+                  placeholder="Subject"
+                  disabled
+                ></textarea>
+                <input
+                  type="submit"
+                  value="Send Message"
+                  class="btn"
+                  disabled
+                />
+              </form>
+            </div>
+
+            <span class="number-page">6</span>
+
+            <span class="nextprev-btn back" data-page="turn-3">
+              <i class="bx bx-chevron-left"></i>
+            </span>
+            <a href="#" class="back-profile">
+              <p>Profile</p>
+              <i class="bx bxs-user"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/book.js"></script>
+    <script type="module" src="js/cv-generator.js"></script>
+    <script type="module" src="js/submit_cv.js"></script>
+  </body>
+</html>

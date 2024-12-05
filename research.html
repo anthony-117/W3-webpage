@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="public/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/web_history.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Web Technologies Information</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:nth-child(odd) {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="table_of_content">
+      <!-- <i class="fa-solid fa-bars"></i> -->
+      <nav></nav>
+    </aside>
+
+    <header class="header">
+      <nav>
+        <div class="logo">
+          <a href="index.html">
+            <img src="public/favicon.png" alt="Logo" />
+          </a>
+        </div>
+        <ul>
+          <li class="dropdown">
+            <a href="#"
+              >Documentation
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div class="dropdown-content show">
+              <a href="web_history.html">Web History</a>
+              <a href="mobile_web_history.html" style="text-align: center"
+                >Mobile Development</a
+              >
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">
+              Explore
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div class="dropdown-content show">
+              <a href="research.html">Research</a>
+              <a href="arabic.html" target="_blank" rel="noopener noreferrer"
+                >Arabic Page</a
+              >
+              <a href="schedule.html">Calendar</a>
+              <a href="portfolio.html">Personal CV</a>
+            </div>
+          </li>
+          <li>
+            <a href="wordle.html" target="_blank" rel="noopener noreferrer"
+              >Wordle</a
+            >
+          </li>
+          <li>
+            <a href="no_css/" target="_blank" rel="noopener noreferrer"
+              >No CSS</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="body">
+      <div class="title">
+        <h1>Web Technologies Information</h1>
+        <img src="public/images/explore.jpeg" alt="" />
+      </div>
+      <main>
+        <section>
+          <h2>Difference between GET and POST in RESTful APIs</h2>
+          <ul>
+            <li>
+              <h3>POST</h3>
+              <ol>
+                <li>
+                  The POST method requests that the origin server accept the
+                  entity attached in the request as a new subordinate of the
+                  resource identified by the <em>Request-URI</em> in the
+                  <em>Request-Line</em>
+                </li>
+                <li>
+                  <code>POST</code> is <strong>NOT idempotent</strong>. So if we
+                  retry the request N times, we will end up having N resources
+                  with N different URIs created on the server.
+                </li>
+                <li>
+                  Responses to this method are <strong>not cacheable</strong>,
+                  unless the response includes appropriate
+                  <em>Cache-Control</em> or <em>Expires</em> header fields.
+                </li>
+              </ol>
+            </li>
+            <li>
+              <h3>GET</h3>
+              <ol>
+                <li>
+                  The GET Method requests
+                  <strong
+                    >to retrieve resource representation/information
+                    only</strong
+                  >
+                  – and not modify it in any way. As GET requests do not change
+                  the resource's state, these are said to be
+                  <strong>safe methods</strong>.
+                </li>
+                <li>
+                  <strong>GET APIs should be idempotent.</strong> Making
+                  multiple identical requests must produce the same result every
+                  time.
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Google Search Algorithm</h2>
+          <ul>
+            <li>
+              <h3>Algorithm</h3>
+              <p>
+                Google Search works in three stages, and not all pages make it
+                through each stage:
+              </p>
+              <ol>
+                <li>
+                  <strong>Crawling:</strong> Google downloads text, images, and
+                  videos from pages it found on the internet with automated
+                  programs called crawlers.
+                </li>
+                <li>
+                  <strong>Indexing:</strong> Google analyzes the text, images,
+                  and video files on the page, and stores the information in the
+                  Google index, which is a large database.
+                </li>
+                <li>
+                  <strong>Serving search results:</strong> When a user searches
+                  on Google, Google returns information that's relevant to the
+                  user's query.
+                </li>
+              </ol>
+            </li>
+            <li>
+              <h3>Page Rank</h3>
+              <ol>
+                <li>
+                  Basic Concept: PageRank is based on the idea that the
+                  importance of a web page can be determined by the quantity and
+                  quality of links pointing to it from other web pages. The more
+                  high-quality websites that link to a page, the more important
+                  the page is assumed to be.
+                </li>
+                <li>
+                  Mathematical Model: PageRank can be thought of as modeling a
+                  "random surfer" who starts on a random web page and keeps
+                  clicking on links, never hitting "back" but eventually gets
+                  bored and starts on another random page. The probability that
+                  the random surfer visits a page is its PageRank.
+                </li>
+                <li>
+                  The PageRank Formula: The simplified PageRank formula for a
+                  page A is:
+                  <br />PR(A) = (1-d) + d * (PR(T1)/C(T1) + ... + PR(Tn)/C(Tn))
+                  <br />Where:
+                  <ul>
+                    <li>PR(A) is the PageRank of page A</li>
+                    <li>
+                      PR(Ti) is the PageRank of pages Ti which link to page A
+                    </li>
+                    <li>C(Ti) is the number of outbound links on page Ti</li>
+                    <li>d is a damping factor, usually set to 0.85</li>
+                  </ul>
+                </li>
+                <li>
+                  Damping Factor: The damping factor d represents the
+                  probability that the "random surfer" will continue clicking on
+                  links, rather than randomly jumping to a new page. The (1-d)
+                  term ensures that pages with no inbound links still get a
+                  small PageRank.
+                </li>
+                <li>
+                  Iterative Calculation: PageRank is calculated iteratively.
+                  Initially, all pages are assigned an equal PageRank, and then
+                  the formula is applied repeatedly until the PageRank values
+                  converge (i.e., stop changing significantly).
+                </li>
+                <li>
+                  Link Quality: Not all links are equal. Links from more
+                  important pages (those with higher PageRank) contribute more
+                  to the PageRank of the pages they link to.
+                </li>
+                <li>
+                  Treatment of Dangling Links: Pages with no outbound links
+                  (dangling nodes) pose a problem for the algorithm. Various
+                  methods have been proposed to handle this, such as treating
+                  them as if they linked to all pages in the web.
+                </li>
+                <li>
+                  Personalization: The basic PageRank algorithm can be modified
+                  to produce personalized PageRanks, which take into account a
+                  user's preferences or browsing history.
+                </li>
+                <li>
+                  Integration with Other Factors: While PageRank was a
+                  revolutionary algorithm when introduced, modern search engines
+                  use it in combination with hundreds of other factors to
+                  determine search rankings.
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </section>
+
+        <!-- <h3>References</h3>
+        <ul>
+          <li>
+            Brin, S., & Page, L. (1998). The anatomy of a large-scale hypertextual
+            Web search engine. Computer Networks and ISDN Systems, 30(1-7),
+            107-117.
+          </li>
+          <li>
+            Page, L., Brin, S., Motwani, R., & Winograd, T. (1999). The PageRank
+            citation ranking: Bringing order to the web. Stanford InfoLab.
+          </li>
+          <li>
+            Langville, A. N., & Meyer, C. D. (2006). Google's PageRank and beyond:
+            The science of search engine rankings. Princeton University Press.
+          </li>
+        <li>
+          Berkhin, P. (2005). A survey on PageRank computing. Internet
+          Mathematics, 2(1), 73-120.
+        </li>
+      </ul> -->
+
+        <section>
+          <h2>First HTML TAGS</h2>
+          <ul>
+            <li>
+              <table>
+                <tr>
+                  <th>Tag</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td><code>&lt;title&gt;</code></td>
+                  <td>
+                    Specifies the title of the document, shown in the browser
+                    tab or title bar.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;nextid&gt;</code></td>
+                  <td>
+                    An obsolete tag used to specify the next unique identifier
+                    number. It was used in early HTML versions but is no longer
+                    supported.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;a&gt;</code></td>
+                  <td>
+                    Defines a hyperlink, allowing users to navigate from one
+                    page or section to another using URLs.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;isindex&gt;</code></td>
+                  <td>
+                    An obsolete tag used to create a single-line input field for
+                    keyword searches. It is no longer used in modern HTML.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;plaintext&gt;</code></td>
+                  <td>
+                    An obsolete tag that causes the rest of the page to be
+                    rendered as plain text, ignoring HTML formatting. It's
+                    rarely used in current web development.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;listing&gt;</code></td>
+                  <td>
+                    An obsolete tag that displays text as preformatted, like
+                    <code>&lt;pre&gt;</code>, often used for code or listings.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;p&gt;</code></td>
+                  <td>
+                    Defines a paragraph of text. This is a block-level element,
+                    typically separating text with space above and below.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;h1&gt;…&lt;h6&gt;</code></td>
+                  <td>
+                    Defines HTML headings, with <code>&lt;h1&gt;</code> being
+                    the most important (usually the main heading) and
+                    <code>&lt;h6&gt;</code> the least important.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;address&gt;</code></td>
+                  <td>
+                    Represents contact information for the document author or
+                    owner, usually rendered in italics by default.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;hp1&gt;</code>, <code>&lt;hp2&gt;</code></td>
+                  <td>
+                    These tags are not part of standard HTML and likely refer to
+                    custom or proprietary tags in some older or non-standard
+                    HTML implementations.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;dl&gt;</code></td>
+                  <td>
+                    Defines a description list (also called a definition list),
+                    containing pairs of terms and descriptions.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;dt&gt;</code></td>
+                  <td>
+                    Defines a term or name in a description list, typically
+                    appearing in bold.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;dd&gt;</code></td>
+                  <td>
+                    Defines a description or value for a term in a description
+                    list, usually indented under the term.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;ul&gt;</code></td>
+                  <td>
+                    Defines an unordered list, with list items typically
+                    rendered as bullet points.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;li&gt;</code></td>
+                  <td>
+                    Defines a list item within either an unordered
+                    (<code>&lt;ul&gt;</code>) or ordered
+                    (<code>&lt;ol&gt;</code>) list.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;menu&gt;</code></td>
+                  <td>
+                    An obsolete tag that originally represented a list of
+                    commands or options. It was used similarly to
+                    <code>&lt;ul&gt;</code> but is now rarely used.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>&lt;dir&gt;</code></td>
+                  <td>
+                    Another obsolete tag that defined a directory list of files.
+                    It has been replaced by more modern elements like
+                    <code>&lt;ul&gt;</code>.
+                  </td>
+                </tr>
+              </table>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>CSS History and Features</h2>
+          <ul>
+            <li>
+              <h3>Creation of CSS</h3>
+              <p>
+                Cascading Style Sheets (CSS) was proposed by Håkon Wium Lie on
+                October 10, 1994, while working with Tim Berners-Lee at CERN.
+                The World Wide Web Consortium (W3C) developed CSS to solve the
+                problem of HTML becoming too complex as authors began using it
+                for formatting instead of just structuring content.
+              </p>
+            </li>
+            <li>
+              <h3>CSS Levels and Versions</h3>
+              <p>
+                CSS has evolved through several levels: CSS1 was released in
+                1996, CSS2 in 1998, and CSS3 began development in 1999. Unlike
+                its predecessors, CSS3 was divided into modules that could be
+                developed and released independently. This modular approach
+                continues with CSS4 and beyond, though version numbers are less
+                emphasized now.
+              </p>
+            </li>
+            <li>
+              <h3>Selectors</h3>
+              <p>
+                CSS selectors are patterns used to select and style HTML
+                elements. They've evolved significantly since CSS1:
+              </p>
+
+              <ul>
+                <li>Element selectors (e.g., p, div)</li>
+                <li>Class selectors (e.g., .classname)</li>
+                <li>ID selectors (e.g., #idname)</li>
+                <li>Attribute selectors (e.g., [attribute="value"])</li>
+                <li>Pseudo-class selectors (e.g., :hover, :nth-child())</li>
+                <li>Pseudo-element selectors (e.g., ::before, ::after)</li>
+                <li>Combinators (e.g., descendant, child, adjacent sibling)</li>
+              </ul>
+              <!-- </p> -->
+            </li>
+            <li>
+              <h3>@rules</h3>
+              <p>
+                @rules (pronounced "at-rules") are CSS statements that give CSS
+                instructions on how to behave. They include:
+              </p>
+
+              <ul>
+                <li>@import - for importing other style sheets</li>
+                <li>@media - for responsive design and media queries</li>
+                <li>@font-face - for custom font embedding</li>
+                <li>@keyframes - for defining animations</li>
+                <li>@supports - for feature detection</li>
+                <li>@layer - for cascade layering (newer feature)</li>
+              </ul>
+              <!-- </p> -->
+            </li>
+            <li>
+              <h3>Box Model</h3>
+              <p>
+                The CSS box model is a fundamental concept introduced early in
+                CSS development. It describes how elements are rendered as boxes
+                with content, padding, borders, and margins. CSS3 introduced the
+                box-sizing property, allowing developers to change how the box
+                model is calculated.
+              </p>
+            </li>
+            <li>
+              <h3>Flexbox and Grid</h3>
+              <p>
+                CSS Flexbox (2017) and CSS Grid (2017) are modern layout systems
+                that revolutionized web design. Flexbox provides a more
+                efficient way to lay out, align, and distribute space among
+                items in a container. Grid offers a two-dimensional grid-based
+                layout system, making complex layouts more accessible and
+                responsive design easier.
+              </p>
+            </li>
+            <li>
+              <h3>CSS Preprocessors</h3>
+              <p>
+                While not part of the CSS specification, preprocessors like Sass
+                (2006), Less (2009), and Stylus (2010) have significantly
+                influenced CSS development. They introduced features like
+                variables, nesting, and mixins, many of which were later adopted
+                into native CSS.
+              </p>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Events</h2>
+          <ul>
+            <li>
+              <h3>Window Event Attributes</h3>
+
+              <table class="ws-table-all notranslate">
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onafterprint.asp">onafterprint</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run after the document is printed</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onbeforeprint.asp">onbeforeprint</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run before the document is printed</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onbeforeunload.asp">onbeforeunload</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the document is about to be unloaded
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onerror.asp">onerror</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when an error occurs</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onhashchange.asp">onhashchange</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when there has been changes to the anchor
+                      part of the a URL
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onload.asp">onload</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires after the page is finished loading</td>
+                  </tr>
+                  <tr>
+                    <td>onmessage</td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when the message is triggered</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onoffline.asp">onoffline</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the browser starts to work offline
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ononline.asp">ononline</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the browser starts to work online
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>onpagehide</td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when a user navigates away from a page
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onpageshow.asp">onpageshow</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when a user navigates to a page</td>
+                  </tr>
+                  <tr>
+                    <td>onpopstate</td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when the window's history changes</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onresize.asp">onresize</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when the browser window is resized</td>
+                  </tr>
+                  <tr>
+                    <td>onstorage</td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when a Web Storage area is updated</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onunload.asp">onunload</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires once a page has unloaded (or the browser window has
+                      been closed)
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Form Events</h3>
+              <table>
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onblur.asp">onblur</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires the moment that the element loses focus</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onchange.asp">onchange</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires the moment when the value of the element is changed
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oncontextmenu.asp">oncontextmenu</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when a context menu is triggered</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onfocus.asp">onfocus</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires the moment when the element gets focus</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oninput.asp">oninput</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when an element gets user input</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oninvalid.asp">oninvalid</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when an element is invalid</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onreset.asp">onreset</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when the Reset button in a form is clicked</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onsearch.asp">onsearch</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the user writes something in a search field
+                      (for &lt;input="search"&gt;)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onselect.asp">onselect</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires after some text has been selected in an element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onsubmit.asp">onsubmit</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when a form is submitted</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Keyboard Events</h3>
+              <table>
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onkeydown.asp">onkeydown</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when a user is pressing a key</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onkeypress.asp">onkeypress</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when a user presses a key</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onkeyup.asp">onkeyup</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when a user releases a key</td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Mouse Events</h3>
+              <table>
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onclick.asp">onclick</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires on a mouse click on the element</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondblclick.asp">ondblclick</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires on a mouse double-click on the element</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onmousedown.asp">onmousedown</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when a mouse button is pressed down on an element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onmousemove.asp">onmousemove</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the mouse pointer is moving while it is over an
+                      element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onmouseout.asp">onmouseout</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the mouse pointer moves out of an element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onmouseover.asp">onmouseover</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when the mouse pointer moves over an element</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onmouseup.asp">onmouseup</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when a mouse button is released over an element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>onmousewheel</td>
+                    <td><i>script</i></td>
+                    <td>
+                      <span class="deprecated">Deprecated.</span> Use the
+                      <a href="ev_onwheel.asp">onwheel</a> attribute instead
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onwheel.asp">onwheel</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the mouse wheel rolls up or down over an
+                      element
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Drag Events</h3>
+              <table>
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondrag.asp">ondrag</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when an element is dragged</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondragend.asp">ondragend</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run at the end of a drag operation</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondragenter.asp">ondragenter</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when an element has been dragged to a
+                      valid drop target
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondragleave.asp">ondragleave</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when an element leaves a valid drop
+                      target
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="height: 32px">
+                      <a href="ev_ondragover.asp">ondragover</a>
+                    </td>
+                    <td style="height: 32px"><i>script</i></td>
+                    <td style="height: 32px">
+                      Script to be run when an element is being dragged over a
+                      valid drop target
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondragstart.asp">ondragstart</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run at the start of a drag operation</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ondrop.asp">ondrop</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when dragged element is being dropped
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onscroll.asp">onscroll</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when an element's scrollbar is being
+                      scrolled
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Clipboard Events</h3>
+              <table class="ws-table-all notranslate">
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oncopy.asp">oncopy</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the user copies the content of an element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oncut.asp">oncut</a></td>
+                    <td><i>script</i></td>
+                    <td>Fires when the user cuts the content of an element</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onpaste.asp">onpaste</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the user pastes some content in an element
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Media Events</h3>
+              <table class="ws-table-all notranslate">
+                <tbody>
+                  <tr>
+                    <th style="width: 180px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onabort.asp">onabort</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run on abort</td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_oncanplay.asp">oncanplay</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when a file is ready to start playing
+                      (when it has buffered enough to begin)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="ev_oncanplaythrough.asp">oncanplaythrough</a>
+                    </td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when a file can be played all the way to
+                      the end without pausing for buffering
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>oncuechange</td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the cue changes in a &lt;track&gt;
+                      element
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="ev_ondurationchange.asp">ondurationchange</a>
+                    </td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the length of the media changes
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>onemptied</td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when something bad happens and the file
+                      is suddenly unavailable (like unexpectedly disconnects)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onended.asp">onended</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the media has reach the end (a
+                      useful event for messages like "thanks for listening")
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_av_onerror.asp">onerror</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when an error occurs when the file is
+                      being loaded
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onloadeddata.asp">onloadeddata</a></td>
+                    <td><i>script</i></td>
+                    <td>Script to be run when media data is loaded</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="ev_onloadedmetadata.asp">onloadedmetadata</a>
+                    </td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when meta data (like dimensions and
+                      duration) are loaded
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onloadstart.asp">onloadstart</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run just as the file begins to load before
+                      anything is actually loaded
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onpause.asp">onpause</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the media is paused either by the
+                      user or programmatically
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onplay.asp">onplay</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the media is ready to start playing
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onplaying.asp">onplaying</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the media actually has started
+                      playing
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onprogress.asp">onprogress</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the browser is in the process of
+                      getting the media data
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onratechange.asp">onratechange</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run each time the playback rate changes (like
+                      when a user switches to a slow motion or fast forward
+                      mode)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onseeked.asp">onseeked</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the seeking attribute is set to
+                      false indicating that seeking has ended
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onseeking.asp">onseeking</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the seeking attribute is set to true
+                      indicating that seeking is active
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onstalled.asp">onstalled</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the browser is unable to fetch the
+                      media data for whatever reason
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onsuspend.asp">onsuspend</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when fetching the media data is stopped
+                      before it is completely loaded for whatever reason
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ontimeupdate.asp">ontimeupdate</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the playing position has changed
+                      (like when the user fast forwards to a different point in
+                      the media)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onvolumechange.asp">onvolumechange</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run each time the volume is changed which
+                      (includes setting the volume to "mute")
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_onwaiting.asp">onwaiting</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Script to be run when the media has paused but is expected
+                      to resume (like when the media pauses to buffer more data)
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li>
+              <h3>Misc Events</h3>
+              <table class="ws-table-all notranslate">
+                <tbody>
+                  <tr>
+                    <th style="width: 160px">Attribute</th>
+                    <th style="width: 75px">Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td><a href="ev_ontoggle.asp">ontoggle</a></td>
+                    <td><i>script</i></td>
+                    <td>
+                      Fires when the user opens or closes the &lt;details&gt;
+                      element
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Understanding Input vs Button Elements in HTML</h2>
+
+          <h3>The Input Tag (&lt;input&gt;)</h3>
+          <div class="example-container">
+            <p>
+              The input tag is a self-closing element used to create various
+              form controls for user input. It uses the
+              <code>type</code> attribute to define its behavior.
+            </p>
+
+            <h3>Common Input Types:</h3>
+            <div class="demo-section">
+              <div class="input-group">
+                <label>Text Input: </label>
+                <input type="text" placeholder="Enter text" />
+              </div>
+
+              <div class="input-group">
+                <label>Password: </label>
+                <input type="password" placeholder="Enter password" />
+              </div>
+
+              <div class="input-group">
+                <label>Email: </label>
+                <input type="email" placeholder="Enter email" />
+              </div>
+
+              <div class="input-group">
+                <label>Number: </label>
+                <input type="number" placeholder="Enter number" />
+              </div>
+
+              <div class="input-group">
+                <label>Date: </label>
+                <input type="date" />
+              </div>
+
+              <div class="input-group">
+                <label>Checkbox: </label>
+                <input type="checkbox" /> Option 1
+              </div>
+
+              <div class="input-group">
+                <label>Radio: </label>
+                <input type="radio" name="radio" /> Option 1
+                <input type="radio" name="radio" /> Option 2
+              </div>
+
+              <div class="input-group">
+                <label>File: </label>
+                <input type="file" />
+              </div>
+            </div>
+
+            <h3>Key Characteristics of &lt;input&gt;:</h3>
+            <ul>
+              <li>Self-closing tag (no end tag needed)</li>
+              <li>Uses type attribute to define functionality</li>
+              <li>Cannot contain other HTML elements</li>
+              <li>Value is set through attributes</li>
+              <li>Primarily used for collecting user input</li>
+            </ul>
+          </div>
+
+          <h2>The Button Tag (&lt;button&gt;)</h2>
+          <div class="example-container">
+            <p>
+              The button tag creates a clickable button that can contain other
+              HTML elements.
+            </p>
+
+            <h3>Button Examples:</h3>
+            <div class="demo-section">
+              <button type="button">Simple Text Button</button>
+
+              <button type="button">
+                <strong>Bold Text</strong> with <em>Formatting</em>
+              </button>
+            </div>
+
+            <h3>Key Characteristics of &lt;button&gt;:</h3>
+            <ul>
+              <li>Requires closing tag</li>
+              <li>Can contain other HTML elements (text, images, icons)</li>
+              <li>More flexible for styling</li>
+              <li>Three types: submit, reset, button</li>
+              <li>Primarily used for user actions</li>
+            </ul>
+          </div>
+
+          <h2>Key Differences</h2>
+          <table>
+            <tr>
+              <th>Feature</th>
+              <th>&lt;input&gt;</th>
+              <th>&lt;button&gt;</th>
+            </tr>
+            <tr>
+              <td>Primary Purpose</td>
+              <td>Collecting user input in various formats</td>
+              <td>Triggering actions or form submission</td>
+            </tr>
+            <tr>
+              <td>Tag Structure</td>
+              <td>Self-closing tag</td>
+              <td>Requires closing tag</td>
+            </tr>
+            <tr>
+              <td>Content</td>
+              <td>Value set through attributes only</td>
+              <td>Can contain HTML elements and text</td>
+            </tr>
+            <tr>
+              <td>Flexibility</td>
+              <td>Specific purpose based on type attribute</td>
+              <td>General purpose, highly customizable</td>
+            </tr>
+            <tr>
+              <td>Common Uses</td>
+              <td>Text fields, checkboxes, radio buttons, file uploads</td>
+              <td>Submit buttons, action buttons, toggles</td>
+            </tr>
+          </table>
+
+          <h2>When to Use Each</h2>
+          <div class="example-container">
+            <h3>Use &lt;input&gt; when:</h3>
+            <ul>
+              <li>
+                You need to collect user input (text, numbers, dates, etc.)
+              </li>
+              <li>
+                You want to create form controls (checkboxes, radio buttons)
+              </li>
+              <li>You need specialized input types (email, tel, password)</li>
+              <li>You want to handle file uploads</li>
+            </ul>
+
+            <h3>Use &lt;button&gt; when:</h3>
+            <ul>
+              <li>You need a clickable element to trigger actions</li>
+              <li>You want to include HTML content inside the button</li>
+              <li>You need more complex styling options</li>
+              <li>You're creating call-to-action elements</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>PHP Spaceship Operator (<=>)</h2>
+          <p>
+            The spaceship operator (<=>) is a comparison operator introduced in
+            PHP 7.0. It returns:
+          </p>
+          <ol>
+            <li>-1 if the left operand is less than the right operand</li>
+            <li>0 if the operands are equal</li>
+            <li>1 if the left operand is greater than the right operand</li>
+          </ol>
+
+          <div class="example">
+            <pre><code>// Basic usage
+  $result = 1 <=> 1;  // Returns 0 (equal)
+  $result = 1 <=> 2;  // Returns -1 (left is less)
+  $result = 2 <=> 1;  // Returns 1 (left is greater)
+  
+  // String comparison
+  $result = "a" <=> "b";  // Returns -1
+  $result = "b" <=> "b";  // Returns 0
+  $result = "c" <=> "b";  // Returns 1</code></pre>
+          </div>
+
+          <p>Common use cases include:</p>
+          <ol>
+            <li>Sorting arrays with custom comparison logic</li>
+            <li>Implementing comparison methods in classes</li>
+            <li>Simplifying complex conditional comparisons</li>
+          </ol>
+
+          <div class="example">
+            <pre><code>// Using with usort()
+  $fruits = ["apple", "banana", "cherry"];
+  usort($fruits, function($a, $b) {
+      return $a <=> $b;
+  });
+  
+  // In a class comparison method
+  public function compareTo($other) {
+      return $this->value <=> $other->value;
+  }</code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Static Variables in PHP</h2>
+          <p>
+            Static variables in PHP maintain their value between function calls.
+            They are declared using the <code>static</code> keyword and are
+            initialized only once when the function is first called.
+          </p>
+
+          <div class="example">
+            <pre><code>function counter() {
+      static $count = 0;
+      return ++$count;
+  }
+  
+  echo counter(); // Outputs: 1
+  echo counter(); // Outputs: 2
+  echo counter(); // Outputs: 3</code></pre>
+          </div>
+
+          <p>Key characteristics of static variables:</p>
+          <ol>
+            <li>They maintain their value between function invocations</li>
+            <li>They are initialized only once</li>
+            <li>They are only accessible within the function's scope</li>
+            <li>
+              They can be used to maintain state without using global variables
+            </li>
+          </ol>
+
+          <p>Static variables in classes:</p>
+          <div class="example">
+            <pre><code>class Logger {
+      private static $logCount = 0;
+      
+      public function log($message) {
+          self::$logCount++;
+          echo "[Log #" . self::$logCount . "] $message\n";
+      }
+      
+      public static function getLogCount() {
+          return self::$logCount;
+      }
+  }</code></pre>
+          </div>
+
+          <p>Common use cases:</p>
+          <ol>
+            <li>Counting function calls</li>
+            <li>Caching expensive computations</li>
+            <li>Implementing singleton patterns</li>
+            <li>Managing shared state within a class</li>
+          </ol>
+        </section>
+        <!-- <section>
+          <h2>References</h2>
+          <ol class="reference-list">
+            <li>
+              PCMag. (n.d.). <i>30 Years of Browsers: A Quick History</i>.
+
+              <a
+                href="https://www.pcmag.com/news/30-years-of-browsers-a-quick-history"
+                target="_blank"
+                >https://www.pcmag.com/news/30-years-of-browsers-a-quick-history</a
+              >
+            </li>
+
+            <li>
+              Mozilla. (n.d.). <i>Firefox: Browser History</i>.
+              <a
+                href="https://www.mozilla.org/en-US/firefox/browsers/browser-history/"
+                target="_blank"
+                >https://www.mozilla.org/en-US/firefox/browsers/browser-history/</a
+              >
+            </li>
+
+            <li>
+              Google Developers. (n.d.). <i>How Search Works</i>.
+              <a
+                href="https://developers.google.com/search/docs/fundamentals/how-search-works"
+                target="_blank"
+                >https://developers.google.com/search/docs/fundamentals/how-search-works</a
+              >
+            </li>
+
+            <li>
+              GeeksforGeeks. (n.d.). <i>Page Rank Algorithm Implementation</i>.
+
+              <a
+                href="https://www.geeksforgeeks.org/page-rank-algorithm-implementation/"
+                target="_blank"
+                >https://www.geeksforgeeks.org/page-rank-algorithm-implementation/</a
+              >
+            </li>
+
+            <li>
+              Medium. (n.d.).
+              <i>History of HTML: From Evolution to Popularity</i>.
+              <a
+                href="https://seattlewebsitedesign.medium.com/history-of-html-from-evolution-to-popularity-ccc7286d0ab"
+                target="_blank"
+                >https://seattlewebsitedesign.medium.com/history-of-html-from-evolution-to-popularity-ccc7286d0ab</a
+              >
+            </li>
+
+            <li>
+              W3C. (n.d.). <i>Chapter 2: History of the Web</i>.
+              <a
+                href="https://www.w3.org/People/Raggett/book4/ch02.html"
+                target="_blank"
+                >https://www.w3.org/People/Raggett/book4/ch02.html</a
+              >
+            </li>
+          </ol>
+        </section> -->
+      </main>
+    </div>
+    <script src="js/table_of_content.js"></script>
+    <script type="module" src="js/reference_generator.js"></script>
+  </body>
+</html>
