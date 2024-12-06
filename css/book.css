@@ -18,7 +18,7 @@
   --border: 0.125rem solid var(--main-color);
   --box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.2);
 }
-body {
+.body {
   display: flex;
   justify-content: center;
   align-items: center;

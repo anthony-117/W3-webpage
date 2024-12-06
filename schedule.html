@@ -9,29 +9,95 @@
       rel="stylesheet"
     />
     <link rel="shortcut icon" href="public/calendar.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/error_message.css" />
     <link rel="stylesheet" href="css/schedule.css" />
+    <link rel="stylesheet" href="css/header.css" />
   </head>
 
   <body>
     <div id="messages"></div>
-
-    <div class="fixed-header">
-      <h1 class="current-month"></h1>
-      <div id="schedule-switcher">
-        <label for="schedule-select">Select Schedule:</label>
-        <select id="schedule-select"></select>
-        <button id="add-schedule-btn">Add Schedule</button>
-        <button id="delete-schedule-btn">Delete Schedule</button>
+    <header id="header">
+      <nav>
+        <div class="logo">
+          <a href="#">
+            <img src="public/favicon.png" alt="Logo" />
+          </a>
+        </div>
+        <ul>
+          <li class="dropdown">
+            <a href="#"
+              >Documentation
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div class="dropdown-content show">
+              <a href="web_history.html">Web History</a>
+              <a href="mobile_web_history.html" style="text-align: center"
+                >Mobile Development</a
+              >
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">
+              Explore
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div class="dropdown-content show">
+              <a href="research.html">Research</a>
+              <a href="arabic.html" target="_blank" rel="noopener noreferrer"
+                >Arabic Page</a
+              >
+              <a href="schedule.html">Calendar</a>
+              <a href="portfolio.html">Personal CV</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">
+              XML
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div class="dropdown-content show">
+              <a href="xml-css.xml">XML + CSS</a>
+              <a href="xml-no-css.xml">XML ALONE</a>
+            </div>
+          </li>
+          <li>
+            <a href="wordle.html" target="_blank" rel="noopener noreferrer"
+              >Wordle</a
+            >
+          </li>
+          <li>
+            <a href="no_css/" target="_blank" rel="noopener noreferrer"
+              >No CSS</a
+            >
+          </li>
+        </ul>
+        <a
+          class="group-project-link"
+          href="https://cinlic.rf.gd"
+          target="_blank"
+          >Cinlic</a
+        >
+      </nav>
+    </header>
+    <div>
+      <div class="fixed-header">
+        <h1 class="current-month"></h1>
+        <div id="schedule-switcher">
+          <label for="schedule-select">Select Schedule:</label>
+          <select id="schedule-select"></select>
+          <button id="add-schedule-btn">Add Schedule</button>
+          <button id="delete-schedule-btn">Delete Schedule</button>
+        </div>
+        <div class="calendar" id="calendar-header"></div>
+        <button id="add-event-btn"><i class="bx bx-plus"></i></button>
+        <button id="theme-toggle">
+          <i class="bx bx-sun"></i>
+        </button>
       </div>
-      <div class="calendar" id="calendar-header"></div>
-      <button id="add-event-btn"><i class="bx bx-plus"></i></button>
-      <button id="theme-toggle">
-        <i class="bx bx-sun"></i>
-      </button>
-    </div>
 
-    <div class="calendar-container">
-      <div class="calendar" id="calendar-body"></div>
+      <div class="calendar-container">
+        <div class="calendar" id="calendar-body"></div>
+      </div>
     </div>
 
     <form id="add-event-form" style="display: none">

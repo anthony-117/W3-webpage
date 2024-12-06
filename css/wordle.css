@@ -4,7 +4,6 @@
 }
 
 :root {
-  /* Light theme variables */
   --color-background: #ffffff;
   --color-text: #1a1a1b;
   --color-border: #d3d6da;
@@ -22,7 +21,6 @@
 }
 
 [data-theme="dark"] {
-  /* Dark theme variables */
   --color-background: #121213;
   --color-text: #ffffff;
   --color-border: #3a3a3c;
@@ -422,10 +420,6 @@ body {
 .play-again:hover {
   background: #437c3f;
 }
-.theme-toggle {
-  position: absolute;
-  left: 1rem;
-}
 .theme-button {
   background: none;
   border: none;
@@ -439,12 +433,7 @@ body {
   background-color: var(--color-button-hover);
 }
 
-/* Only show relevant theme icon */
 [data-theme="dark"] .light-icon,
 [data-theme="light"] .dark-icon {
   display: none;
-}
-.theme-toggle {
-  position: absolute;
-  left: 1rem;
 }

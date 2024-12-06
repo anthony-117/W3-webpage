@@ -19,7 +19,7 @@ body {
   height: 100vh;
   line-height: 1.6;
   font-size: 2.5vh;
-  background-image: url(/public/images/background.jpeg);
+  background-image: url(../public/images/background.jpeg);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -61,7 +61,7 @@ h2 {
 }
 
 header {
-  height: 75vh;
+  /* height: 75vh; */
   width: 100%;
   padding: 0;
   text-align: center;

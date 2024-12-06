@@ -6,6 +6,7 @@
     <title>wordle</title>
     <link rel="shortcut icon" href="public/scrabble.png" type="image/x-icon" />
     <link rel="stylesheet" href="css/wordle.css" />
+    <link rel="stylesheet" href="css/header.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -58,19 +59,82 @@
         <strong>U</strong> is not in the word in any spot.
       </p>
     </div>
+    <header id="header">
+      <nav>
+        <div class="logo">
+          <a href="#">
+            <img src="public/favicon.png" alt="Logo" />
+          </a>
+        </div>
+        <ul>
+          <li class="dropdown">
+            <a href="#"
+              >Documentation
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div class="dropdown-content show">
+              <a href="web_history.html">Web History</a>
+              <a href="mobile_web_history.html" style="text-align: center"
+                >Mobile Development</a
+              >
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">
+              Explore
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div class="dropdown-content show">
+              <a href="research.html">Research</a>
+              <a href="arabic.html" target="_blank" rel="noopener noreferrer"
+                >Arabic Page</a
+              >
+              <a href="schedule.html">Calendar</a>
+              <a href="portfolio.html">Personal CV</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">
+              XML
+              <i class="bx bx-chevron-down"></i>
+            </a>
+            <div class="dropdown-content show">
+              <a href="xml-css.xml">XML + CSS</a>
+              <a href="xml-no-css.xml">XML ALONE</a>
+            </div>
+          </li>
+          <li>
+            <a href="wordle.html" target="_blank" rel="noopener noreferrer"
+              >Wordle</a
+            >
+          </li>
+          <li>
+            <a href="no_css/" target="_blank" rel="noopener noreferrer"
+              >No CSS</a
+            >
+          </li>
+        </ul>
+        <a
+          class="group-project-link"
+          href="https://cinlic.rf.gd"
+          target="_blank"
+          >Cinlic</a
+        >
+      </nav>
+    </header>
 
     <header class="header">
+      <!-- <div style="width: 28px"></div> -->
+      <h1>Wordle</h1>
+      <button class="help-button" aria-label="Help">
+        <i class="bx bx-question-mark"></i>
+      </button>
       <div class="theme-toggle">
         <button class="theme-button" aria-label="Toggle theme">
           <i class="bx bx-sun light-icon"></i>
           <i class="bx bx-moon dark-icon"></i>
         </button>
       </div>
-      <!-- <div style="width: 28px"></div> -->
-      <h1>Wordle</h1>
-      <button class="help-button" aria-label="Help">
-        <i class="bx bx-question-mark"></i>
-      </button>
     </header>
     <div class="game-container">
       <div class="grid"></div>

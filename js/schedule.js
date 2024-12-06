@@ -241,11 +241,11 @@ cancelAddEvent.addEventListener("click", () => {
   addEventForm.style.display = "none";
 });
 
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-theme");
-  themeToggle.querySelector("i").classList.toggle("bx-sun");
-  themeToggle.querySelector("i").classList.toggle("bx-moon");
-});
+// themeToggle.addEventListener("click", () => {
+//   document.body.classList.toggle("dark-theme");
+//   themeToggle.querySelector("i").classList.toggle("bx-sun");
+//   themeToggle.querySelector("i").classList.toggle("bx-moon");
+// });
 
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let events = JSON.parse(localStorage.getItem("events")) || [];
@@ -443,6 +443,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "No schedules available. Add a new schedule to get started."
     );
   }
+  showMessage("info", "double click on event to delete");
   document
     .getElementById("add-event-btn")
     .addEventListener("click", showAddEventForm);
