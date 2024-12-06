@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data [
+  <!ELEMENT data (doctor+, email+, database)>
+
+  <!ELEMENT doctor (name, specialty, contact)>
+  <!ELEMENT name (#PCDATA)>
+  <!ELEMENT specialty (#PCDATA)>
+  <!ELEMENT contact (phone, email)>
+  <!ELEMENT phone (#PCDATA)>
+  <!ELEMENT email (#PCDATA)>
+
+  <!ELEMENT email (to, from, subject, body)>
+  <!ELEMENT to (#PCDATA)>
+  <!ELEMENT from (#PCDATA)>
+  <!ELEMENT subject (#PCDATA)>
+  <!ELEMENT body (#PCDATA)>
+
+  <!ELEMENT database (header, record+)>
+  <!ELEMENT header (title, description, columns)>
+  <!ELEMENT title (#PCDATA)>
+  <!ELEMENT description (#PCDATA)>
+  <!ELEMENT columns (column+)>
+  <!ELEMENT column (#PCDATA)>
+  <!ELEMENT record (id, to, from, subject, body, timestamp)>
+  <!ELEMENT id (#PCDATA)>
+  <!ELEMENT to (#PCDATA)>
+  <!ELEMENT from (#PCDATA)>
+  <!ELEMENT subject (#PCDATA)>
+  <!ELEMENT body (#PCDATA)>
+  <!ELEMENT timestamp (#PCDATA)>
+]>
+
+<data>
+  <doctor>
+    <name>Dr. Alice Johnson</name>
+    <specialty>Cardiologist</specialty>
+    <contact>
+      <phone>+1234567890</phone>
+      <email>alice.johnson@hospital.com</email>
+    </contact>
+  </doctor>
+  <doctor>
+    <name>Dr. Bob Smith</name>
+    <specialty>Neurologist</specialty>
+    <contact>
+      <phone>+9876543210</phone>
+      <email>bob.smith@hospital.com</email>
+    </contact>
+  </doctor>
+
+  <email>
+    <to>john@example.com</to>
+    <from>jane@example.com</from>
+    <subject>Upcoming Meeting</subject>
+    <body>Hi John,
+
+    Just a friendly reminder about our meeting this Friday at 2 PM. Please let me know if you have any questions or concerns.
+
+    Best regards,
+    Jane
+    </body>
+  </email>
+
+  <email>
+    <to>support@company.com</to>
+    <from>customer@example.com</from>
+    <subject>Website Issue</subject>
+    <body>Hello,
+
+    I'm having trouble accessing the website. The login page is not loading properly. Can you please look into this and let me know if there's a fix?
+
+    Thank you for your help.
+    </body>
+  </email>
+
+  <email>
+    <to>sales@business.com</to>
+    <from>client@client.com</from>
+    <subject>Product Inquiry</subject>
+    <body>Good morning,
+
+    I'm interested in learning more about your latest product offering. Can you please send over some additional details and pricing information?
+
+    I look forward to hearing from you.
+    </body>
+  </email>
+
+  <database>
+    <header>
+      <title>Email Communication Records</title>
+      <description>A comprehensive log of email communications</description>
+      <columns>
+        <column>ID</column>
+        <column>To</column>
+        <column>From</column>
+        <column>Subject</column>
+        <column>Body</column>
+        <column>Timestamp</column>
+      </columns>
+    </header>
+    <record>
+      <id>1</id>
+      <to>john@example.com</to>
+      <from>jane@example.com</from>
+      <subject>Upcoming Meeting</subject>
+      <body>Hi John,
+
+      Just a friendly reminder about our meeting this Friday at 2 PM. Please let me know if you have any questions or concerns.
+
+      Best regards,
+      Jane
+      </body>
+      <timestamp>2024-12-05T14:00:00Z</timestamp>
+    </record>
+    <record>
+      <id>2</id>
+      <to>support@company.com</to>
+      <from>customer@example.com</from>
+      <subject>Website Issue</subject>
+      <body>Hello,
+
+      I'm having trouble accessing the website. The login page is not loading properly. Can you please look into this and let me know if there's a fix?
+
+      Thank you for your help.
+      </body>
+      <timestamp>2024-12-06T10:15:00Z</timestamp>
+    </record>
+    <record>
+      <id>3</id>
+      <to>sales@business.com</to>
+      <from>client@client.com</from>
+      <subject>Product Inquiry</subject>
+      <body>Good morning,
+
+      I'm interested in learning more about your latest product offering. Can you please send over some additional details and pricing information?
+
+      I look forward to hearing from you.
+      </body>
+      <timestamp>2024-12-07T09:30:00Z</timestamp>
+    </record>
+  </database>
+</data>
