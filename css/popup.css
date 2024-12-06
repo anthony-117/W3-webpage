@@ -1,0 +1,55 @@
+.disclaimer-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.disclaimer-content {
+  background-color: #333;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.disclaimer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-continue {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-continue:hover {
+  background-color: #45a049;
+}
+
+.btn-leave {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-leave:hover {
+  background-color: #d32f2f;
+}
