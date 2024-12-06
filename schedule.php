@@ -7,7 +7,7 @@
    <title>Weekly Event Calendar</title>
    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
    <link rel="shortcut icon" href="/public/calendar.png" type="image/x-icon" />
-   <link rel="stylesheet" href="/src/css/schedule.css" />
+   <link rel="stylesheet" href="css/schedule.css" />
  </head>
 
  <body>
@@ -40,7 +40,7 @@
    <div class="calendar-container">
      <div class="calendar" id="calendar-body"></div>
    </div>
-   <form id="add-event-form" action="includes/schedule.inc.php" method="POST" style="display:none">
+   <form id="add-event-form" action="php/includes/schedule.inc.php" method="POST" style="display:none">
      <h2>Add New Event</h2>
      <label for="event-name">Event Name:</label>
      <input type="text" id="event-name" name="event_name" required>
@@ -95,7 +95,7 @@
      <?php endif; ?>
      async function deleteEvent(eventId) {
        try {
-         const response = await fetch('includes/schedule.inc.php', {
+         const response = await fetch('php/includes/schedule.inc.php', {
            method: 'DELETE',
            headers: {
              'Content-Type': 'application/json',
@@ -119,7 +119,7 @@
        }
      }
    </script>
-   <script src="/src/js/schedule.js"></script>
+   <script src="js/schedule.js"></script>
 
  </body>
 

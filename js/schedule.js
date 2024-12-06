@@ -1,50 +1,257 @@
-const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+if (!localStorage.getItem("schedules")) {
+  localStorage.setItem(
+    "schedules",
+    JSON.stringify({
+      "fall-semester": [
+        {
+          name: "GEN350",
+          days: [1, 5],
+          startTime: "11:00",
+          endTime: "12:15",
+          location: "H006",
+        },
+        {
+          name: "ECO350",
+          days: [1, 5],
+          startTime: "09:30",
+          endTime: "10:45",
+          location: "D306",
+        },
+        {
+          name: "GEL313",
+          days: [2, 4],
+          startTime: "09:30",
+          endTime: "10:45",
+          location: "H004",
+        },
+        {
+          name: "GIN321",
+          days: [2, 4],
+          startTime: "15:30",
+          endTime: "16:45",
+          location: "H004",
+        },
+        {
+          name: "GIN446",
+          days: [2, 4],
+          startTime: "17:00",
+          endTime: "18:15",
+          location: "H104",
+        },
+        {
+          name: "GEL445",
+          days: [5],
+          startTime: "12:30",
+          endTime: "15:15",
+          location: "H005",
+        },
+      ],
+      "spring-semester": [
+        {
+          name: "GEL420",
+          days: [2, 4],
+          startTime: "09:30",
+          endTime: "10:45",
+          location: "",
+        },
+        {
+          name: "GIN421",
+          days: [1, 5],
+          startTime: "11:00",
+          endTime: "12:15",
+          location: "",
+        },
+        {
+          name: "GERE210",
+          days: [2, 4],
+          startTime: "11:00",
+          endTime: "12:15",
+          location: "",
+        },
+        {
+          name: "GIN425",
+          days: [2, 4],
+          startTime: "14:00",
+          endTime: "15:15",
+          location: "",
+        },
+        {
+          name: "GIN450",
+          days: [3],
+          startTime: "11:00",
+          endTime: "13:30",
+          location: "",
+        },
+        {
+          name: "GEL474",
+          days: [3],
+          startTime: "14:10",
+          endTime: "15:50",
+          location: "",
+        },
+        {
+          name: "GEL521",
+          days: [3],
+          startTime: "17:00",
+          endTime: "19:10",
+          location: "",
+        },
+      ],
+    })
+  );
+}
 
-// const events = [
-//   {
-//     name: "ECO350",
-//     days: [1, 5],
-//     startTime: "09:30",
-//     endTime: "10:45",
-//     location: "",
-//   },
-//   {
-//     name: "GEL313",
-//     days: [2, 4],
-//     startTime: "09:30",
-//     endTime: "10:45",
-//     location: "",
-//   },
-//   {
-//     name: "GEN350",
-//     days: [1, 5],
-//     startTime: "11:00",
-//     endTime: "12:15",
-//     location: "",
-//   },
-//   {
-//     name: "GIN321",
-//     days: [2, 4],
-//     startTime: "15:30",
-//     endTime: "16:45",
-//     location: "",
-//   },
-//   {
-//     name: "GIN446",
-//     days: [2, 4],
-//     startTime: "17:00",
-//     endTime: "18:15",
-//     location: "",
-//   },
-//   {
-//     name: "GEL445",
-//     days: [5],
-//     startTime: "12:30",
-//     endTime: "15:15",
-//     location: "",
-//   },
-// ];
-// const events = [];
+const schedules = JSON.parse(localStorage.getItem("schedules")) || [];
+
+const saveSchedules = (schedules) =>
+  localStorage.setItem("schedules", JSON.stringify(schedules));
+
+const scheduleSelect = document.getElementById("schedule-select");
+const addScheduleBtn = document.getElementById("add-schedule-btn");
+const deleteScheduleBtn = document.getElementById("delete-schedule-btn");
+const addEventForm = document.getElementById("add-event-form");
+const addEventBtn = document.getElementById("add-event-btn");
+const cancelAddEvent = document.getElementById("cancel-add-event");
+const calendarBody = document.getElementById("calendar-body");
+const messages = document.getElementById("messages");
+const themeToggle = document.getElementById("theme-toggle");
+
+function showMessage(type, text) {
+  const messageDiv = document.createElement("div");
+  messageDiv.className = `message ${type}`;
+  messageDiv.textContent = text;
+  messages.appendChild(messageDiv);
+
+  setTimeout(() => messageDiv.remove(), 3000);
+}
+
+function loadScheduleOptions() {
+  scheduleSelect.innerHTML = "";
+  Object.keys(schedules).forEach((name) => {
+    const option = document.createElement("option");
+    option.value = name;
+    option.textContent = name;
+    scheduleSelect.appendChild(option);
+  });
+
+  if (Object.keys(schedules).length === 0) {
+    showMessage(
+      "info",
+      "No schedules available. Add a new schedule to get started."
+    );
+  } else {
+    let selectedSchedule = scheduleSelect.value;
+    renderSchedule(selectedSchedule);
+  }
+}
+
+function addEventToUI(event, scheduleKey, eventIndex) {
+  event.days.forEach((day) => {
+    const startHour = parseInt(event.startTime.split(":")[0]);
+    const cell = document.getElementById(`day${day}-hour${startHour}`);
+    if (cell) {
+      const eventDiv = document.createElement("div");
+      eventDiv.className = "event";
+      eventDiv.innerHTML = `${event.name}<br>${event.startTime} - ${event.endTime}`;
+      eventDiv.style.cssText = calculateEventStyle(
+        event.startTime,
+        event.endTime
+      );
+
+      eventDiv.dataset.scheduleName = scheduleKey;
+      eventDiv.dataset.eventIndex = eventIndex;
+
+      eventDiv.addEventListener("dblclick", function () {
+        const scheduleName = this.dataset.scheduleName;
+        const eventIndex = this.dataset.eventIndex;
+
+        if (schedules[scheduleName]) {
+          schedules[scheduleName].splice(eventIndex, 1);
+          saveSchedules(schedules);
+
+          renderSchedule(scheduleName);
+
+          showMessage(
+            "success",
+            `Event "${event.name}" deleted from schedule "${scheduleName}".`
+          );
+        }
+      });
+
+      cell.appendChild(eventDiv);
+    }
+  });
+}
+
+function renderSchedule(scheduleName) {
+  for (let day = 0; day < 7; day++) {
+    for (let hour = 0; hour < 24; hour++) {
+      const cell = document.getElementById(`day${day}-hour${hour}`);
+      cell.innerHTML = "";
+    }
+  }
+
+  if (schedules[scheduleName]) {
+    schedules[scheduleName].forEach((event, index) => {
+      addEventToUI(event, scheduleName, index);
+    });
+  }
+  scroll;
+}
+addScheduleBtn.addEventListener("click", () => {
+  const scheduleName = prompt("Enter schedule name:");
+  if (scheduleName) {
+    if (!schedules[scheduleName]) {
+      schedules[scheduleName] = [];
+      saveSchedules(schedules);
+      loadScheduleOptions();
+      showMessage("success", `Schedule "${scheduleName}" added successfully.`);
+    } else {
+      showMessage("error", "Schedule already exists!");
+    }
+  }
+});
+
+deleteScheduleBtn.addEventListener("click", () => {
+  const selectedSchedule = scheduleSelect.value;
+  if (selectedSchedule) {
+    delete schedules[selectedSchedule];
+    saveSchedules(schedules);
+    loadScheduleOptions();
+    showMessage(
+      "success",
+      `Schedule "${selectedSchedule}" deleted successfully.`
+    );
+  } else {
+    showMessage("error", "No schedule selected!");
+  }
+});
+
+scheduleSelect.addEventListener("change", () => {
+  const selectedSchedule = scheduleSelect.value;
+  renderSchedule(selectedSchedule);
+});
+
+addEventBtn.addEventListener(
+  "click",
+  () => (addEventForm.style.display = "block")
+);
+cancelAddEvent.addEventListener("click", () => {
+  addEventForm.reset();
+  addEventForm.style.display = "none";
+});
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
+  themeToggle.querySelector("i").classList.toggle("bx-sun");
+  themeToggle.querySelector("i").classList.toggle("bx-moon");
+});
+
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let events = JSON.parse(localStorage.getItem("events")) || [];
+function saveEventsToLocalStorage() {
+  localStorage.setItem("events", JSON.stringify(events));
+}
 
 function setCurrentMonth() {
   const months = [
@@ -71,15 +278,13 @@ function createCalendar() {
   const calendarBody = document.getElementById("calendar-body");
 
   const startDate = new Date();
-
   startDate.setDate(startDate.getDate() - startDate.getDay());
 
   calendarHeader.innerHTML = '<div class="time" style="width: 52px;"> </div>';
-
   days.forEach((day, index) => {
     const currentDate = new Date(startDate);
-    currentDate.setDate(startDate.getDate() + index); // Increment the date for each day
-    const dayNumber = currentDate.getDate(); // Get the day of the month
+    currentDate.setDate(startDate.getDate() + index);
+    const dayNumber = currentDate.getDate();
     calendarHeader.innerHTML += `<div class="header">${day} ${dayNumber}</div>`;
   });
 
@@ -90,7 +295,7 @@ function createCalendar() {
         : `${hour === 12 ? 12 : hour - 12} PM`;
 
     calendarBody.innerHTML +=
-      hour != 0
+      hour !== 0
         ? `<div class="time">${timeString}</div>`
         : `<div class="time"> </div>`;
     for (let day = 0; day < 7; day++) {
@@ -107,9 +312,95 @@ function timeToMinutes(time) {
 function calculateEventStyle(startTime, endTime) {
   const startMinutes = timeToMinutes(startTime);
   const endMinutes = timeToMinutes(endTime);
-  const top = ((startMinutes % 60) / 60) * 61; // 61px to account for borders
+  const top = ((startMinutes % 60) / 60) * 61;
   const height = ((endMinutes - startMinutes) / 60) * 61;
   return `top: ${top}px; height: ${height}px; z-index: 10;`;
+}
+
+function loadEvents() {
+  events.forEach(addEventToUI);
+}
+
+function setActiveDay() {
+  const today = new Date().getDay();
+  const activeDay = document.querySelector(
+    `#calendar-header > div:nth-child(${today + 2})`
+  );
+  if (activeDay) activeDay.classList.add("active-day");
+}
+
+function showAddEventForm() {
+  document.getElementById("add-event-form").style.display = "block";
+}
+
+function hideAddEventForm() {
+  document.getElementById("add-event-form").style.display = "none";
+}
+
+document
+  .getElementById("cancel-add-event")
+  .addEventListener("click", hideAddEventForm);
+
+addEventForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const selectedSchedule = scheduleSelect.value;
+
+  if (!selectedSchedule) {
+    showMessage("error", "Please select a schedule first.");
+    return;
+  }
+
+  const eventName = document.getElementById("event-name").value;
+  const eventDays = Array.from(
+    document.querySelectorAll('input[name="event-days[]"]:checked')
+  ).map((input) => parseInt(input.value));
+  const eventStart = document.getElementById("event-start").value;
+  const eventEnd = document.getElementById("event-end").value;
+  const eventLocation = document.getElementById("event-location").value;
+
+  if (eventDays.length === 0) {
+    showMessage("error", "Please select at least one day for the event.");
+    return;
+  }
+
+  const newEvent = {
+    name: eventName,
+    days: eventDays,
+    startTime: eventStart,
+    endTime: eventEnd,
+    location: eventLocation,
+  };
+
+  if (!schedules[selectedSchedule]) {
+    schedules[selectedSchedule] = [];
+  }
+
+  schedules[selectedSchedule].push(newEvent);
+
+  saveSchedules(schedules);
+
+  addEventToUI(newEvent);
+
+  addEventForm.reset();
+  addEventForm.style.display = "none";
+
+  showMessage(
+    "success",
+    `Event "${eventName}" added to schedule "${selectedSchedule}".`
+  );
+});
+
+function setThemeBasedOnBrowserPreference() {
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    document.body.classList.add("dark-theme");
+    document
+      .querySelector("#theme-toggle i")
+      .classList.replace("bx-sun", "bx-moon");
+  }
 }
 
 function addEvent(event) {
@@ -129,46 +420,6 @@ function addEvent(event) {
   });
 }
 
-function setActiveDay() {
-  const today = new Date().getDay();
-  const activeDay = document.querySelector(
-    `#calendar-header > div:nth-child(${today + 2})`
-  );
-  if (activeDay) activeDay.classList.add("active-day");
-}
-
-function showCurrentTime() {
-  const now = new Date();
-  const minutes = now.getHours() * 60 + now.getMinutes();
-  const currentTimeDiv = document.createElement("div");
-  currentTimeDiv.className = "current-time";
-  currentTimeDiv.style.top = `${(minutes / 60) * 61}px`; // 61px to account for borders
-  document
-    .getElementById(`day${now.getDay()}-hour${0}`)
-    .appendChild(currentTimeDiv);
-
-  // document.querySelector(".day-column").appendChild(currentTimeDiv);
-  return minutes;
-}
-
-function scrollToCurrentTime(minutes) {
-  const calendarContainer = document.querySelector(".calendar-container");
-  const scrollPosition = (minutes / 60) * 61 - window.innerHeight / 2;
-  calendarContainer.scrollTop = Math.max(0, scrollPosition);
-}
-
-function setThemeBasedOnBrowserPreference() {
-  if (
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
-    document.body.classList.add("dark-theme");
-    document
-      .querySelector("#theme-toggle i")
-      .classList.replace("bx-sun", "bx-moon");
-  }
-}
-
 function toggleTheme() {
   document.body.classList.toggle("dark-theme");
   const icon = document.querySelector("#theme-toggle i");
@@ -178,152 +429,24 @@ function toggleTheme() {
     icon.classList.replace("bx-moon", "bx-sun");
   }
 }
-function addNewEvent(event) {
-  events.push(event);
-  addEvent(event);
-}
-
-// function showAddEventForm() {
-// const form = document.createElement("form");
-// form.id = "add-event-form";
-// form.method = "POST";
-// form.innerHTML = `
-//   <h2>Add New Event</h2>
-//   <label for="event-name">Event Name:</label>
-//   <input type="text" id="event-name" name="event_name" required>
-
-//   <fieldset>
-//     <legend>Days:</legend>
-//     ${days
-
-//       .map(
-//         (day, index) => `
-//       <label>
-//         <input type="checkbox" name="event-days[]" value="${index}">
-//         ${day}
-//       </label>
-//     `
-//       )
-//       .join("")}
-//   </fieldset>
-//   <label for="event-start">Start Time:</label>
-//   <input type="time" id="event-start" name="from" required>
-//   <label for="event-end">End Time:</label>
-//   <input type="time" id="event-end" required name="to">
-//   <label for="event-location">Location:</label>
-//   <input type="text" id="event-location" name="location">
-//   <div class="form-buttons">
-//   <button type="button" id="cancel-add-event">Cancel</button>
-//   <button type="submit">Add Event</button>
-//   </div>
-// `;
-
-// document.body.appendChild(form);
-// let form = document.getElementById("add-event-form");
-
-// form.style.display = "block";
-
-// form.addEventListener("submit", function (e) {
-//   e.preventDefault();
-//   const newEvent = {
-//     name: document.getElementById("event-name").value,
-//     days: Array.from(
-//       document.querySelectorAll('input[name="event-days"]:checked')
-//     ).map((cb) => parseInt(cb.value)),
-//     startTime: document.getElementById("event-start").value,
-//     endTime: document.getElementById("event-end").value,
-//     location: document.getElementById("event-location").value,
-//   };
-//   addNewEvent(newEvent);
-//   document.body.removeChild(form);
-// });
-
-//   document
-//     .getElementById("cancel-add-event")
-//     .addEventListener("click", function () {
-//       form.style.display = "none";
-//     });
-// }
-
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", function () {
   setThemeBasedOnBrowserPreference();
   setCurrentMonth();
   createCalendar();
-  try {
-    const response = await fetch("includes/schedule.inc.php");
-    if (!response.ok) {
-      throw new Error("Failed to fetch events");
-    }
-    events = await response.json();
-    events.forEach(addEvent);
-  } catch (error) {
-    console.error("Error loading events:", error);
-  }
-  events.forEach(addEvent);
+  loadEvents();
   setActiveDay();
-  const currentMinutes = showCurrentTime();
-  scrollToCurrentTime(currentMinutes);
 
-  document
-    .getElementById("theme-toggle")
-    .addEventListener("click", toggleTheme);
+  loadScheduleOptions();
+  if (!scheduleSelect.value) {
+    showMessage(
+      "info",
+      "No schedules available. Add a new schedule to get started."
+    );
+  }
   document
     .getElementById("add-event-btn")
     .addEventListener("click", showAddEventForm);
-});
-
-function showAddEventForm() {
-  let form = document.getElementById("add-event-form");
-  form.style.display = "block";
-}
-
-document
-  .getElementById("cancel-add-event")
-  .addEventListener("click", function () {
-    document.getElementById("add-event-form").style.display = "none";
-  });
-document
-  .getElementById("add-event-form")
-  .addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(this);
-
-    try {
-      const response = await fetch("includes/schedule.inc.php", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to add event");
-      }
-
-      const newEvent = {
-        name: document.getElementById("event-name").value,
-        days: Array.from(
-          document.querySelectorAll('input[name="event-days"]:checked')
-        ).map((cb) => parseInt(cb.value)),
-        startTime: document.getElementById("event-start").value,
-        endTime: document.getElementById("event-end").value,
-        location: document.getElementById("event-location").value,
-      };
-
-      addEvent(newEvent);
-      events.push(newEvent);
-      this.style.display = "none";
-      this.reset();
-    } catch (error) {
-      console.error("Error:", toString(error));
-      alert("Failed to add event. Please try again.");
-    }
-  });
-
-document.addEventListener("DOMContentLoaded", function () {
-  const alerts = document.querySelectorAll(".alert");
-  alerts.forEach((alert) => {
-    setTimeout(() => {
-      alert.remove();
-    }, 5000);
-  });
+  document
+    .getElementById("theme-toggle")
+    .addEventListener("click", toggleTheme);
 });
