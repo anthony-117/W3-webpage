@@ -7,10 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showDisclaimer() {
     disclaimerPopup.style.display = "flex";
+    disclaimerPopup.classList.add("active");
+
+    document.body.style.overflow = "hidden";
   }
 
   function hideDisclaimer() {
     disclaimerPopup.style.display = "none";
+    disclaimerPopup.classList.remove("active");
+
+    document.body.style.overflow = "auto";
+
     sessionStorage.setItem("disclaimerShown", "true");
   }
 
@@ -22,5 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   leaveBtn.addEventListener("click", () => {
     window.location.href = "https://www.google.com";
+  });
+
+  disclaimerPopup.addEventListener("click", (e) => {
+    if (e.target === disclaimerPopup) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
   });
 });
